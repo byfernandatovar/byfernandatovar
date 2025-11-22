@@ -1,6 +1,6 @@
 // src/components/features.tsx
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "~/ui/button";
 
@@ -17,7 +17,7 @@ const sections: Section[] = [
     id: 1,
     title: "Momentos Eternos",
     description:
-      "Capturamos la esencia de su amor en cada mirada, sonrisa y abrazo. Cada instante se transforma en una historia visual que perdurará para siempre, reflejando la autenticidad de su día más especial.",
+      "Capturo la esencia de su amor en cada mirada, sonrisa y abrazo. Cada instante se transforma en una historia visual que perdurará para siempre, reflejando la autenticidad de su día más especial.",
     imageUrl:
       "/home/hero/hero9.webp",
     reverse: false,
@@ -26,7 +26,7 @@ const sections: Section[] = [
     id: 2,
     title: "Arte Natural",
     description:
-      "Fotografía documental que fluye con la naturalidad de vuestra celebración. Sin poses forzadas, solo la magia espontánea de un día único, donde cada emoción se revela en su forma más pura y hermosa.",
+      "Fotografía documental que fluye con la naturalidad de su celebración. Sin poses forzadas, solo la magia espontánea de un día único, donde cada emoción se revela en su forma más pura y hermosa.",
     imageUrl:
       "/home/hero/hero10.webp",
     reverse: true,
@@ -35,7 +35,7 @@ const sections: Section[] = [
     id: 3,
     title: "Su Historia",
     description:
-      "Más que fotografías, creamos el relato visual de vuestro amor. Desde los preparativos íntimos hasta el último baile, documentamos cada capítulo de vuestra jornada hacia la felicidad eterna.",
+      "Más que fotografías, me gusta crear el relato visual de su amor. Desde los preparativos íntimos hasta el último baile, documento cada capítulo de su jornada hacia la felicidad eterna.",
     imageUrl:
       "/home/hero/hero11.webp",
     reverse: false,
@@ -43,6 +43,20 @@ const sections: Section[] = [
 ];
 
 const Features: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detectar si es móvil
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // refs para cada sección
   const sectionRefs = sections.map(() =>
     useRef<HTMLDivElement | null>(null)
@@ -74,19 +88,7 @@ const Features: React.FC = () => {
   );
 
   return (
-    <div className="bg-[#F0EBE1] overflow-hidden">
-      {/* Intro */}
-      <div className="h-[50vh] w-screen flex flex-col items-center justify-center px-4 pt-24 text-center">
-        <h1 className="text-black text-5xl md:text-7xl lg:text-8xl font-bold uppercase leading-tight mb-6">
-          <span className="block">LA ALEGRÍA</span>
-          <span className="block">DE SER VISTO</span>
-        </h1>
-        <p className="text-black text-lg md:text-xl lg:text-2xl font-normal max-w-2xl">
-          — La pasión de reflejar y documentar el sueño más grande.
-        </p>
-        <Button variant="primary" className="my-10">Agenda tu sesión</Button>
-      </div>
-
+    <div className="bg-[#F0EBE1] overflow-hidden py-24">
       {/* Secciones con parallax */}
       <div className="flex flex-col md:px-0 px-10 pt-10">
         {sections.map((section, index) => (
@@ -97,12 +99,12 @@ const Features: React.FC = () => {
               section.reverse ? "md:flex-row-reverse" : ""
             }`}
           >
-            <motion.div style={{ y: translateContents[index] }} className="w-full md:w-auto">
-              <div className="text-black text-4xl md:text-6xl max-w-sm">
+            <motion.div style={{ y: isMobile ? 0 : translateContents[index] }} className="w-full md:w-auto">
+              <h2 className="text-black text-4xl md:text-6xl max-w-sm">
                 {section.title}
-              </div>
+              </h2>
               <motion.p
-                style={{ y: translateContents[index] }}
+                style={{ y: isMobile ? 0 : translateContents[index] }}
                 className="text-black/70 max-w-sm mt-6 md:mt-10"
               >
                 {section.description}

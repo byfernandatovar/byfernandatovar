@@ -18,15 +18,6 @@ import React, {
   const cn = (...classes: Array<string | undefined | null | false>) =>
     classes.filter(Boolean).join(" ");
   
-  // ======================
-  // Utility: Check if mobile
-  // ======================
-  const isMobile = () => {
-    if (typeof navigator === "undefined") return false;
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-  };
 
   // ======================
   // Hook: useMousePositionRef
@@ -71,50 +62,12 @@ import React, {
     return positionRef;
   };
 
-  // ======================
-  // Hook: useDeviceOrientationRef
-  // ======================
-  const useDeviceOrientationRef = () => {
-    const positionRef = useRef({ x: 0, y: 0 });
-  
-    useEffect(() => {
-      const handleDeviceOrientation = (event: DeviceOrientationEvent) => {
-        const gamma = event.gamma || 0; // -180 a 180 (izquierda-derecha)
-        const beta = event.beta || 0;   // -90 a 90 (arriba-abajo)
-  
-        // Normalizar valores para que funcionen bien con sensitivity
-        // Rango aproximado -50 a 50 para movimiento suave
-        const normalizedX = (gamma / 3) * 1.5;
-        const normalizedY = (beta / 2) * 1.5;
-  
-        positionRef.current = { x: normalizedX, y: normalizedY };
-      };
-  
-      if (typeof window !== "undefined") {
-        window.addEventListener("deviceorientation", handleDeviceOrientation as EventListener);
-      }
-  
-      return () => {
-        if (typeof window !== "undefined") {
-          window.removeEventListener("deviceorientation", handleDeviceOrientation as EventListener);
-        }
-      };
-    }, []);
-  
-    return positionRef;
-  };
 
   // ======================
-  // Hook: usePositionRef (decides between mouse/touch or device orientation)
+  // Hook: usePositionRef (mouse/touch for all devices)
   // ======================
   const usePositionRef = (containerRef?: RefObject<HTMLElement | SVGElement>) => {
-    const mobile = isMobile();
-    
-    if (mobile) {
-      return useDeviceOrientationRef();
-    } else {
-      return useMousePositionRef(containerRef);
-    }
+    return useMousePositionRef(containerRef);
   };
   
   // ======================

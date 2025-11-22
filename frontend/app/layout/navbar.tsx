@@ -14,19 +14,34 @@ const Example = () => {
 
 const FlyoutNav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [prevScroll, setPrevScroll] = useState(0);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 250 ? true : false);
+    // Cambiar glassmorphism después de 100px
+    setScrolled(latest > 100 ? true : false);
+
+    // Detectar dirección del scroll
+    if (latest > prevScroll) {
+      // Scrolling down
+      setHidden(true);
+    } else {
+      // Scrolling up
+      setHidden(false);
+    }
+    setPrevScroll(latest);
   });
 
   return (
-    <nav
+    <motion.nav
+      animate={{ y: hidden ? -100 : 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className={`fixed top-0 z-60 w-full px-6 text-black
       transition-all duration-300 ease-out lg:px-12
       ${
         scrolled
-          ? "bg-[#F0EBE1] py-3 shadow-xl"
+          ? "bg-white/30 py-3 backdrop-blur-md shadow-lg"
           : "bg-[#F0EBE1]/0 py-6 shadow-none"
       }`}
     >
@@ -38,7 +53,7 @@ const FlyoutNav = () => {
         </div>
         <MobileMenu />
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
@@ -85,7 +100,7 @@ const NavLink = ({
       onMouseLeave={() => setOpen(false)}
       className="relative h-fit w-fit"
     >
-      <a href={href} className="relative text-black">
+      <a href={href} className="relative text-sm text-[#7D7873] uppercase tracking-wide">
         {children}
         <span
           style={{
@@ -139,7 +154,7 @@ const MobileMenuLink = ({
       <a
         onClick={() => setMenuOpen(false)}
         href={href}
-        className="flex w-full cursor-pointer items-center border-b border-neutral-300 py-6 text-start text-2xl font-semibold hover:bg-neutral-50 transition-colors"
+        className="flex w-full cursor-pointer items-center border-b border-neutral-300 py-6 text-start text-2xl text-[#7D7873] uppercase tracking-wide hover:bg-neutral-50 transition-colors"
       >
         <span>{children}</span>
       </a>
@@ -180,7 +195,7 @@ const MobileMenu = () => {
                 </MobileMenuLink>
               ))}
             </div>
-            <div className="flex justify-end bg-neutral-950 p-6">
+            <div className="flex justify-end bg-[#F0EBE1] p-6">
               <CTAs />
             </div>
           </motion.nav>
