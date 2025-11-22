@@ -102,31 +102,31 @@ const socialLinks: FooterLink[] = [
 
 const footerLinkGroups: FooterLinkGroup[] = [
   {
-    label: "Services",
+    label: "Servicios",
     links: [
-      { title: "Web Development", href: "/web-dev" },
-      { title: "Branding & Identity", href: "/branding" },
-      { title: "AI Driven Content Creation", href: "/ai-content-creation" },
-      { title: "Chatbots", href: "/chatbots" },
-      { title: "Automation Systems", href: "/automation-systems" },
+      { title: "Bodas", href: "/bodas" },
+      { title: "Sesiones de Compromiso", href: "/compromiso" },
+      { title: "Sesiones de Parejas", href: "/parejas" },
+      { title: "Trash the Dress", href: "/trash-the-dress" },
+      { title: "Aniversarios", href: "/aniversarios" },
     ],
   },
   {
-    label: "Portfolio",
+    label: "Portafolio",
     links: [
-      { title: "MT3 Arquitectos", href: "https://mt3arquitectos.com.mx" },
-      { title: "Sinergia Telecomunicaciones", href: "https://sinergia-telecomunicaciones.com.mx" },
-      { title: "Stellaris Education", href: "https://stellarisnashville.com" },
-      { title: "Stoever", href: "https://stoever.com.mx" },
+      { title: "Bodas Completas", href: "/portfolio/bodas" },
+      { title: "Momentos Íntimos", href: "/portfolio/momentos" },
+      { title: "Detalles y Decoración", href: "/portfolio/detalles" },
+      { title: "Testimonios", href: "/testimonios" },
     ],
   },
   {
-    label: "Pricing",
+    label: "Información",
     links: [
-      { title: "Hobby", href: "/hobby" },
-      { title: "Individual", href: "/individual" },
-      { title: "Team", href: "/team" },
-      { title: "Enterprise", href: "/enterprise" },
+      { title: "Sobre Mí", href: "/about" },
+      { title: "Mi Proceso", href: "/proceso" },
+      { title: "Paquetes", href: "/paquetes" },
+      { title: "Contacto", href: "/contacto" },
     ],
   },
 ];
