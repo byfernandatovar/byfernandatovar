@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Sprat Font - Títulos */
+@font-face {
+  font-family: 'Sprat';
+  src: url('/fonts/Sprat-Regular.woff2') format('woff2'),
+       url('/fonts/Sprat-Regular.woff') format('woff'),
+       url('/fonts/Sprat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Helvetica Font - Subtítulos y Textos */
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica.woff2') format('woff2'),
+       url('/fonts/Helvetica.woff') format('woff'),
+       url('/fonts/Helvetica.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Helvetica", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: "Sprat", serif;
+}
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+  font-family: var(--font-sans);
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+/* Estilos para títulos con Sprat */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Estilos para subtítulos y textos con Helvetica */
+p, span, a, li {
+  font-family: var(--font-sans);
+}
