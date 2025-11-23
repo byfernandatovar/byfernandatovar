@@ -11,7 +11,10 @@ export function HomeCta2() {
         <p className="text-white text-lg md:text-xl lg:text-2xl font-normal max-w-2xl">
           — La pasión de reflejar y documentar el sueño más grande.
         </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <Button variant="primary" className="my-10">Agendar sesión</Button>
+        <Button variant="secondary">Portafolio</Button>
+        </div>
       </div>
     </div>
   );
