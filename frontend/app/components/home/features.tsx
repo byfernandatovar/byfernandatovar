@@ -19,7 +19,7 @@ const sections: Section[] = [
     description:
       "Capturo la esencia de su amor en cada mirada, sonrisa y abrazo. Cada instante se transforma en una historia visual que perdurará para siempre, reflejando la autenticidad de su día más especial.",
     imageUrl:
-      "/home/hero/hero9.webp",
+      "/home-imgs/hero/hero9.webp",
     reverse: false,
   },
   {
@@ -28,7 +28,7 @@ const sections: Section[] = [
     description:
       "Fotografía documental que fluye con la naturalidad de su celebración. Sin poses forzadas, solo la magia espontánea de un día único, donde cada emoción se revela en su forma más pura y hermosa.",
     imageUrl:
-      "/home/hero/hero10.webp",
+      "/home-imgs/hero/hero10.webp",
     reverse: true,
   },
   {
@@ -37,7 +37,7 @@ const sections: Section[] = [
     description:
       "Más que fotografías, me gusta crear el relato visual de su amor. Desde los preparativos íntimos hasta el último baile, documento cada capítulo de su jornada hacia la felicidad eterna.",
     imageUrl:
-      "/home/hero/hero11.webp",
+      "/home-imgs/hero/hero11.webp",
     reverse: false,
   },
 ];

@@ -2,7 +2,7 @@ import Button from "../../ui/button";
 
 export function HomeCta2() {
   return (
-    <div className="bg-[#F0EBE1] h-screen bg-[url('/ctas/cta-bg.webp')] bg-cover bg-bottom w-full flex flex-col items-center justify-center px-4 py-24 text-center relative">
+    <div className="bg-[#F0EBE1] h-screen bg-[url('/home-imgs/ctas/cta-bg.webp')] bg-cover bg-bottom w-full flex flex-col items-center justify-center px-4 py-24 text-center relative">
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative z-10">
         <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-normal font-heading uppercase leading-tight mb-6">

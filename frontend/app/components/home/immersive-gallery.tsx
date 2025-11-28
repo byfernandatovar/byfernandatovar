@@ -14,13 +14,13 @@ interface ImmersiveScrollGalleryProps {
 
 // Defaults: solo src, sin scale para evitar errores TS
 const DEFAULT_IMAGES: IPicture[] = [
-  { src: "/home/hero/hero1.webp" },
-  { src: "/home/hero/hero2.webp" },
-  { src: "/home/hero/hero3.webp" },
-  { src: "/home/hero/hero4.webp" },
-  { src: "/home/hero/hero5.webp" },
-  { src: "/home/hero/hero6.webp" },
-  { src: "/home/hero/hero7.webp" },
+  { src: "/home-imgs/hero/hero1.webp" },
+  { src: "/home-imgs/hero/hero2.webp" },
+  { src: "/home-imgs/hero/hero3.webp" },
+  { src: "/home-imgs/hero/hero4.webp" },
+  { src: "/home-imgs/hero/hero5.webp" },
+  { src: "/home-imgs/hero/hero6.webp" },
+  { src: "/home-imgs/hero/hero7.webp" },
 ];
 
 const IMAGE_STYLES = [

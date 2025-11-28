@@ -73,7 +73,7 @@ const Links = () => {
   return (
     <div className="flex items-center gap-6">
       {LINKS.map((l) => (
-        <NavLink key={l.text} href={l.href}>
+        <NavLink key={l.text} href={l.href} FlyoutContent={l.component}>
           {l.text}
         </NavLink>
       ))}
@@ -146,11 +146,53 @@ const MobileMenuLink = ({
   children,
   href,
   setMenuOpen,
+  hasSubmenu,
 }: {
   children: React.ReactNode;
   href: string;
   setMenuOpen: (value: boolean) => void;
+  hasSubmenu?: boolean;
 }) => {
+  const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  const portfolioCategories = [
+    { name: "Weddings", href: "/portfolio/weddings", subtitle: "Eternal Moments" },
+    { name: "Portraits", href: "/portfolio/portraits", subtitle: "Soul Stories" },
+    { name: "Moments", href: "/portfolio/moments", subtitle: "Life Captured" },
+    { name: "Couples", href: "/portfolio/couples", subtitle: "Love & Connection" },
+  ];
+
+  if (hasSubmenu) {
+    return (
+      <div className="relative text-neutral-950">
+        <div
+          onClick={() => setSubmenuOpen(!submenuOpen)}
+          className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl text-[#7D7873] uppercase tracking-wide hover:bg-neutral-50 transition-colors"
+        >
+          <span>{children}</span>
+          <span className="text-lg">{submenuOpen ? "−" : "+"}</span>
+        </div>
+        {submenuOpen && (
+          <div className="bg-[#F0EBE1] pl-6">
+            {portfolioCategories.map((category) => (
+              <a
+                key={category.name}
+                href={category.href}
+                onClick={() => setMenuOpen(false)}
+                className="block py-4 border-b border-neutral-300/50 text-lg text-[#7D7873] hover:text-black transition-colors"
+              >
+                <div>
+                  <div className="font-medium">{category.name}</div>
+                  <div className="text-sm text-[#A59B82] mt-1">{category.subtitle}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="relative text-neutral-950">
       <a
@@ -192,6 +234,7 @@ const MobileMenu = () => {
                   key={l.text}
                   href={l.href}
                   setMenuOpen={setOpen}
+                  hasSubmenu={l.text === "Portafolio"}
                 >
                   {l.text}
                 </MobileMenuLink>
@@ -209,6 +252,36 @@ const MobileMenu = () => {
 
 export default Example;
 
+const PortfolioFlyout = () => {
+  const portfolioCategories = [
+    { name: "Weddings", href: "/portfolio/weddings", subtitle: "Eternal Moments" },
+    { name: "Portraits", href: "/portfolio/portraits", subtitle: "Soul Stories" },
+    { name: "Moments", href: "/portfolio/moments", subtitle: "Life Captured" },
+    { name: "Couples", href: "/portfolio/couples", subtitle: "Love & Connection" },
+  ];
+
+  return (
+    <div className="w-64 bg-white p-6 shadow-xl rounded-lg">
+      <div className="space-y-3">
+        {portfolioCategories.map((category) => (
+          <a
+            key={category.name}
+            href={category.href}
+            className="block group"
+          >
+            <div className="p-3 rounded-md hover:bg-[#F0EBE1] transition-colors duration-200">
+              <h3 className="text-black text-base font-medium group-hover:text-[#BE9B5F] transition-colors">
+                {category.name}
+              </h3>
+              <p className="text-[#7D7873] text-xs mt-1">{category.subtitle}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const LINKS = [
   {
     text: "Inicio",
@@ -221,6 +294,7 @@ const LINKS = [
   {
     text: "Portafolio",
     href: "/portfolio",
+    component: PortfolioFlyout,
   },
   {
     text: "Contacto",

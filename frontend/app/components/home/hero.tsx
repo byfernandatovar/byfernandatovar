@@ -195,49 +195,49 @@ import React, {
   // ======================
   const exampleImages = [
     {
-      url: "/home/hero/hero1.webp",
+      url: "/home-imgs/hero/hero1.webp",
       author: "Branislav Rodman",
       link: "https://unsplash.com/photos/a-black-and-white-photo-of-a-woman-brushing-her-teeth-r1SjnJL5tf0",
       title: "A Black and White Photo of a Woman Brushing Her Teeth",
     },
     {
-      url: "/home/hero/hero3.webp",
+      url: "/home-imgs/hero/hero3.webp",
       link: "https://unsplash.com/photos/a-painting-of-a-palm-leaf-on-a-multicolored-background-AaNPwrSNOFE",
       title: "Neon Palm",
       author: "Tim Mossholder",
     },
     {
-      url: "/home/hero/hero2.webp",
+      url: "/home-imgs/hero/hero2.webp",
       link: "https://unsplash.com/photos/a-blurry-photo-of-a-crowd-of-people-UgbxzloNGsc",
       author: "ANDRII SOLOK",
       title: "A blurry photo of a crowd of people",
     },
     {
-      url: "/home/hero/hero4.webp",
+      url: "/home-imgs/hero/hero4.webp",
       link: "https://unsplash.com/photos/rippling-crystal-blue-water-9-OCsKoyQlk",
       author: "Wesley Tingey",
       title: "Rippling Crystal Blue Water",
     },
     {
-      url: "/home/hero/hero5.webp",
+      url: "/home-imgs/hero/hero5.webp",
       link: "https://unsplash.com/de/photos/mann-im-schwarzen-hemd-unter-blauem-himmel-m8RDNiuEXro",
       author: "Serhii Tyaglovsky",
       title: "Mann im schwarzen Hemd unter blauem Himmel",
     },
     {
-      url: "/home/hero/hero6.webp",
+      url: "/home-imgs/hero/hero6.webp",
       link: "https://unsplash.com/photos/a-woman-with-a-flower-crown-on-her-head-0S3muIttbsY",
       author: "Vladimir Yelizarov",
       title: "A women with a flower crown on her head",
     },
     {
-      url: "/home/hero/hero7.webp",
+      url: "/home-imgs/hero/hero7.webp",
       title: "A blurry photo of white flowers in a field",
       author: "Eugene Golovesov",
       link: "https://unsplash.com/photos/a-blurry-photo-of-white-flowers-in-a-field-6qbx0lzGPyc",
     },
     {
-      url: "/home/hero/hero8.webp",
+      url: "/home-imgs/hero/hero8.webp",
       author: "Mathilde Langevin",
       link: "https://unsplash.com/photos/a-table-topped-with-two-wine-glasses-and-plates-Ig0gRAHspV0",
       title: "A table topped with two wine glasses and plates",
