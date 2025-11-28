@@ -132,7 +132,9 @@ const NavLink = ({
 const CTAs = () => {
   return (
     <div className="flex items-center">
-      <Button variant="primary">Contacto</Button>
+      <a href="/contact">
+        <Button variant="primary">Contacto</Button>
+      </a>
     </div>
   );
 };
@@ -219,5 +221,9 @@ const LINKS = [
   {
     text: "Portafolio",
     href: "/portfolio",
+  },
+  {
+    text: "Contacto",
+    href: "/contact",
   },
 ];
