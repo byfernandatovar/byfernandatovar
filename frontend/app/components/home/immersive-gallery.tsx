@@ -85,7 +85,7 @@ const ImmersiveScrollGallery: React.FC<ImmersiveScrollGalleryProps> = ({
               <img
                 src={src}
                 alt={`Zoom image ${index + 1}`}
-                className="object-cover w-full h-full rounded-md"
+                className="object-cover w-full h-full"
               />
             </div>
           </motion.div>

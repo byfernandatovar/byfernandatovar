@@ -66,7 +66,7 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
               className="break-inside-avoid group cursor-pointer"
               onClick={() => setSelectedImage(image)}
             >
-              <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <motion.img
                   src={image}
                   alt={`${title} ${index + 1}`}
@@ -101,7 +101,7 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
                 <img
                   src={selectedImage}
                   alt="Full size"
-                  className="max-w-full max-h-full object-contain rounded-lg"
+                  className="max-w-full max-h-full object-contain"
                 />
                 <button
                   onClick={() => setSelectedImage(null)}

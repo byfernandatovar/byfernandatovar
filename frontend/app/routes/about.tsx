@@ -1,5 +1,6 @@
 import type { Route } from "./+types/about";
 import AboutUsSection from "../components/about/about-section";
+import AboutCta from "../components/about/about-cta";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,6 +17,9 @@ export default function About() {
     <div className="w-full">
       <section className="w-full">
         <AboutUsSection />
+      </section>
+      <section className="w-full">
+        <AboutCta />
       </section>
     </div>
   );

@@ -116,7 +116,7 @@ const Features: React.FC = () => {
                 opacity: opacityContents[index],
                 clipPath: clipProgresses[index],
               }}
-              className="relative w-full max-w-md h-[400px] md:w-80 md:h-[500px] lg:w-96 lg:h-[600px] overflow-hidden rounded-lg"
+              className="relative w-full max-w-md h-[400px] md:w-80 md:h-[500px] lg:w-96 lg:h-[600px] overflow-hidden "
             >
               <img
                 src={section.imageUrl}

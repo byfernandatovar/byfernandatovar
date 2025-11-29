@@ -19,35 +19,35 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
                 <img
                   src="/home-imgs/hero/hero1.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero2.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero3.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero4.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero5.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
             </div>
@@ -57,21 +57,21 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
                 <img
                   src="/home-imgs/hero/hero6.webp"
                   alt=""
-                  className="transition-all duration-300 h-full w-full align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 h-full w-full align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full h-full">
                 <img
                   src="/home-imgs/hero/hero7.webp"
                   alt=""
-                  className="transition-all duration-300 h-full w-full align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 h-full w-full align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full h-full">
                 <img
                   src="/home-imgs/hero/hero8.webp"
                   alt=""
-                  className="transition-all duration-300 h-full w-full align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 h-full w-full align-bottom object-cover"
                 />
               </figure>
             </div>
@@ -81,35 +81,35 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
                 <img
                   src="/home-imgs/hero/hero9.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero10.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero11.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero12.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
               <figure className="w-full">
                 <img
                   src="/home-imgs/hero/hero13.webp"
                   alt=""
-                  className="transition-all duration-300 w-full h-96 align-bottom object-cover rounded-md"
+                  className="transition-all duration-300 w-full h-96 align-bottom object-cover"
                 />
               </figure>
             </div>

@@ -58,7 +58,7 @@ export const PortfolioGrid = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group relative overflow-hidden rounded-lg aspect-[4/5] md:aspect-[3/4] bg-black/5"
+              className="group relative overflow-hidden aspect-[4/5] md:aspect-[3/4] bg-black/5"
             >
               {/* Image with overlay */}
               <div className="absolute inset-0 overflow-hidden">
