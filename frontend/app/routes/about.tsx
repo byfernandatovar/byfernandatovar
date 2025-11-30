@@ -4,10 +4,10 @@ import AboutCta from "../components/about/about-cta";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Sobre Nosotros - By Fernanda Tovar" },
+    { title: "Sobre mí - By Fernanda Tovar" },
     {
       name: "description",
-      content: "Conoce a Brand of Talent, especialistas en conexión de talento y marcas con cobertura internacional.",
+      content: "Conoce a Fernanda Tovar, fotógrafa profesional de bodas en León, Guanajuato.",
     },
   ];
 }
