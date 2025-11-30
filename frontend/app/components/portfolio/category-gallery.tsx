@@ -7,12 +7,52 @@ interface CategoryGalleryProps {
   images: string[];
 }
 
+// Editorial layout configurations - each defines a row pattern
+type LayoutItem = {
+  width: string; // Tailwind width class
+  align?: "start" | "center" | "end"; // vertical alignment
+  offset?: string; // optional top margin for stagger effect
+};
+
+type LayoutRow = {
+  items: LayoutItem[];
+  gap?: string;
+  justify?: string;
+};
+
+const layoutPatterns: LayoutRow[][] = [
+  // Pattern A: Classic editorial
+  [
+    { items: [{ width: "w-[45%]" }, { width: "w-[35%]", offset: "mt-24" }], justify: "justify-between" },
+    { items: [{ width: "w-[30%]", offset: "mt-12" }, { width: "w-[55%]" }], justify: "justify-between" },
+    { items: [{ width: "w-[50%]" }, { width: "w-[28%]", offset: "mt-32" }], justify: "justify-center", gap: "gap-16" },
+  ],
+  // Pattern B: Asymmetric scatter
+  [
+    { items: [{ width: "w-[35%]" }, { width: "w-[48%]", offset: "mt-16" }], justify: "justify-between" },
+    { items: [{ width: "w-[55%]", offset: "mt-8" }, { width: "w-[32%]" }], justify: "justify-between" },
+    { items: [{ width: "w-[40%]", offset: "mt-20" }, { width: "w-[42%]" }], justify: "justify-center", gap: "gap-12" },
+  ],
+  // Pattern C: Bold asymmetry
+  [
+    { items: [{ width: "w-[52%]" }, { width: "w-[30%]", offset: "mt-28" }], justify: "justify-between" },
+    { items: [{ width: "w-[28%]", offset: "mt-4" }, { width: "w-[50%]" }], justify: "justify-between" },
+    { items: [{ width: "w-[38%]" }, { width: "w-[45%]", offset: "mt-16" }], justify: "justify-between" },
+  ],
+];
+
 export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
   title,
   subtitle,
   images,
 }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Group images into pairs for the layout rows
+  const imagePairs: string[][] = [];
+  for (let i = 0; i < images.length; i += 2) {
+    imagePairs.push(images.slice(i, Math.min(i + 2, images.length)));
+  }
 
   return (
     <div className="min-h-screen bg-[#F0EBE1] py-32 px-6 md:px-12 lg:px-24">
@@ -55,26 +95,65 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
           Volver al Portfolio
         </motion.a>
 
-        {/* Masonry Gallery */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        {/* Editorial Gallery Layout - Desktop */}
+        <div className="hidden md:block space-y-16 lg:space-y-24">
+          {imagePairs.map((pair, pairIndex) => {
+            const patternSet = layoutPatterns[pairIndex % layoutPatterns.length];
+            const rowConfig = patternSet[pairIndex % patternSet.length];
+            
+            return (
+              <div
+                key={pairIndex}
+                className={`flex items-start ${rowConfig.justify || "justify-between"} ${rowConfig.gap || "gap-8"}`}
+              >
+                {pair.map((image, imageIndex) => {
+                  const globalIndex = pairIndex * 2 + imageIndex;
+                  const itemConfig = rowConfig.items[imageIndex] || rowConfig.items[0];
+                  
+                  return (
+                    <motion.div
+                      key={globalIndex}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: imageIndex * 0.15 }}
+                      className={`group cursor-pointer ${itemConfig.width} ${itemConfig.offset || ""}`}
+                      onClick={() => setSelectedImage(image)}
+                    >
+                      <div className="relative overflow-hidden">
+                        <motion.img
+                          src={image}
+                          alt={`${title} ${globalIndex + 1}`}
+                          className="w-full h-auto"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Mobile: Clean stacked layout */}
+        <div className="md:hidden space-y-8">
           {images.map((image, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="break-inside-avoid group cursor-pointer"
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              className="group cursor-pointer"
               onClick={() => setSelectedImage(image)}
             >
-              <div className="relative overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <motion.img
+              <div className="relative overflow-hidden">
+                <img
                   src={image}
                   alt={`${title} ${index + 1}`}
-                  className="w-full h-auto object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
+                  className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
             </motion.div>
           ))}

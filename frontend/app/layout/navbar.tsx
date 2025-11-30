@@ -295,9 +295,5 @@ const LINKS = [
     text: "Portafolio",
     href: "/portfolio",
     component: PortfolioFlyout,
-  },
-  {
-    text: "Contacto",
-    href: "/contact",
-  },
+  }
 ];
