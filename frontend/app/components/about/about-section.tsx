@@ -65,14 +65,6 @@ const AboutUsSection: React.FC = () => {
     >
       {/* Hero section with main image */}
       <div className="relative min-h-screen flex items-center">
-        {/* Left decorative line */}
-        <motion.div
-          className="hidden md:block absolute left-8 md:left-16 top-0 w-px h-full bg-gradient-to-b from-transparent via-[#000000]/30 to-transparent"
-          initial={{ scaleY: 0 }}
-          animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        />
-
         <div className="container mx-auto px-6 md:px-12 lg:px-20 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
@@ -156,18 +148,24 @@ const AboutUsSection: React.FC = () => {
                   />
                   <div className="absolute inset-0 border border-[#BE9B5F]/30" />
                 </motion.div>
-
-                
               </div>
             </motion.div>
           </div>
+          <motion.div
+            variants={fadeIn}
+            className="flex items-center justify-center gap-6 mt-24 md:hidden"
+          >
+            <div className="h-px w-16 md:w-32 bg-[#BE9B5F]/30" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#BE9B5F]/50" />
+            <div className="h-px w-16 md:w-32 bg-[#BE9B5F]/30" />
+          </motion.div>
         </div>
       </div>
 
       {/* Second section - Philosophy - Editorial Style */}
       <motion.div 
         ref={textRef}
-        className="relative pt-24 bg-[#F0EBE1]"
+        className="relative md:pt-24 pt-12 bg-[#F0EBE1]"
         initial="hidden"
         animate={isTextInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -180,9 +178,9 @@ const AboutUsSection: React.FC = () => {
             className="max-w-5xl mx-auto mb-16 md:mb-24"
           >
             <div className="relative">
-              <p className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-light text-[#2C2A29] leading-[1.3] tracking-tight">
+              <h1 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-light text-[#2C2A29] leading-[1.3] tracking-tight">
                 Trabajo desde la <span className="italic text-[#BE9B5F]">presencia</span>.
-              </p>
+              </h1>
               <p className="relative z-10 mt-2 text-2xl md:text-4xl lg:text-5xl font-light text-[#5C5856] leading-[1.3]">
                 Desde estar ahí, realmente ahí.
               </p>
@@ -241,7 +239,8 @@ const AboutUsSection: React.FC = () => {
               Mi intención es simple: crear fotos que se sientan
               <span className="text-[#BE9B5F] font-normal"> elegantes</span>,
               <span className="text-[#BE9B5F] font-normal"> honestas</span> y
-              <span className="text-[#BE9B5F] font-normal"> profundamente tuyas</span>.
+              <span className="text-[#BE9B5F] font-normal"> profundamente</span>
+              <span className="text-[#BE9B5F] font-bold italic"> tuyas</span>.
             </p>
             <p className="text-base md:text-lg text-[#7D7873] italic mb-6">
               Si nuestra energía combina, lo demás fluye.
@@ -254,8 +253,6 @@ const AboutUsSection: React.FC = () => {
               animate={isTextInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 1, duration: 0.6 }}
             >
-              <div className="h-px w-8 bg-[#BE9B5F]" />
-              <span className="text-[#BE9B5F] text-xl italic">Fer</span>
             </motion.div>
           </motion.div>
 

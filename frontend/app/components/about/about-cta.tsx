@@ -20,12 +20,7 @@ const AboutCta: React.FC = () => {
     <motion.div
       ref={ctaRef}
       className="relative pb-24 bg-[#F0EBE1] overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.8 }}
     >
-     
-
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="max-w-2xl mx-auto text-center">
 
