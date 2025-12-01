@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface CategoryGalleryProps {
@@ -7,11 +7,10 @@ interface CategoryGalleryProps {
   images: string[];
 }
 
-// Editorial layout configurations - each defines a row pattern
+// Editorial layout configurations for 2-column rows
 type LayoutItem = {
-  width: string; // Tailwind width class
-  align?: "start" | "center" | "end"; // vertical alignment
-  offset?: string; // optional top margin for stagger effect
+  width: string;
+  offset?: string;
 };
 
 type LayoutRow = {
@@ -46,13 +45,68 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
   subtitle,
   images,
 }) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   // Group images into pairs for the layout rows
   const imagePairs: string[][] = [];
   for (let i = 0; i < images.length; i += 2) {
     imagePairs.push(images.slice(i, Math.min(i + 2, images.length)));
   }
+
+  // Lightbox navigation
+  const goToPrevious = useCallback(() => {
+    if (selectedIndex !== null && selectedIndex > 0) {
+      setSelectedIndex(selectedIndex - 1);
+    }
+  }, [selectedIndex]);
+
+  const goToNext = useCallback(() => {
+    if (selectedIndex !== null && selectedIndex < images.length - 1) {
+      setSelectedIndex(selectedIndex + 1);
+    }
+  }, [selectedIndex, images.length]);
+
+  const closeLightbox = useCallback(() => {
+    setSelectedIndex(null);
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      
+      switch (e.key) {
+        case "Escape":
+          closeLightbox();
+          break;
+        case "ArrowLeft":
+          goToPrevious();
+          break;
+        case "ArrowRight":
+          goToNext();
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, goToPrevious, goToNext, closeLightbox]);
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex]);
+
+  const openLightbox = (globalIndex: number) => {
+    setSelectedIndex(globalIndex);
+  };
 
   return (
     <div className="min-h-screen bg-[#F0EBE1] py-32 px-6 md:px-12 lg:px-24">
@@ -95,7 +149,7 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
           Volver al Portfolio
         </motion.a>
 
-        {/* Editorial Gallery Layout - Desktop */}
+        {/* Editorial Gallery Layout - Desktop (2 columns) */}
         <div className="hidden md:block space-y-16 lg:space-y-24">
           {imagePairs.map((pair, pairIndex) => {
             const patternSet = layoutPatterns[pairIndex % layoutPatterns.length];
@@ -115,9 +169,9 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
                       key={globalIndex}
                       initial={{ opacity: 0, y: 50 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: imageIndex * 0.15 }}
+                      transition={{ duration: 0.8, delay: imageIndex * 0.12 }}
                       className={`group cursor-pointer ${itemConfig.width} ${itemConfig.offset || ""}`}
-                      onClick={() => setSelectedImage(image)}
+                      onClick={() => openLightbox(globalIndex)}
                     >
                       <div className="relative overflow-hidden">
                         <motion.img
@@ -146,7 +200,7 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.08 }}
               className="group cursor-pointer"
-              onClick={() => setSelectedImage(image)}
+              onClick={() => openLightbox(index)}
             >
               <div className="relative overflow-hidden">
                 <img
@@ -159,36 +213,97 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
           ))}
         </div>
 
-        {/* Lightbox Modal */}
-        <AnimatePresence>
-          {selectedImage && (
+        {/* Lightbox Modal - Improved UX */}
+        <AnimatePresence mode="wait">
+          {selectedIndex !== null && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 bg-black/95 z-60 flex items-center justify-center p-4 md:p-8 cursor-pointer"
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/95 z-50 flex flex-col"
             >
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-                className="relative w-full h-[70vh] flex items-center justify-center"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <img
-                  src={selectedImage}
-                  alt="Full size"
-                  className="max-w-full max-h-full object-contain"
-                />
+              {/* Top bar */}
+              <div className="flex items-center justify-between px-4 md:px-8 py-4 text-white/70">
+                <span className="text-sm tracking-wider font-light">
+                  {selectedIndex + 1} / {images.length}
+                </span>
                 <button
-                  onClick={() => setSelectedImage(null)}
-                  className="absolute -top-2 -right-2 md:top-4 md:right-4 text-white text-4xl md:text-5xl hover:text-[#BE9B5F] transition-colors bg-black/50 md:bg-transparent w-12 h-12 md:w-auto md:h-auto rounded-full md:rounded-none flex items-center justify-center"
+                  onClick={closeLightbox}
+                  className="p-2 hover:text-white transition-colors"
+                  aria-label="Cerrar"
                 >
-                  ×
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                 </button>
-              </motion.div>
+              </div>
+
+              {/* Image container */}
+              <div 
+                className="flex-1 flex items-center justify-center px-4 md:px-20 pb-8 relative"
+                onClick={closeLightbox}
+              >
+                {/* Previous button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPrevious();
+                  }}
+                  disabled={selectedIndex === 0}
+                  className={`absolute left-2 md:left-6 top-1/2 -translate-y-1/2 p-3 text-white/60 hover:text-white transition-all z-10 ${
+                    selectedIndex === 0 ? "opacity-30 cursor-not-allowed" : "hover:bg-white/10 rounded-full"
+                  }`}
+                  aria-label="Anterior"
+                >
+                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Image with animation */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedIndex}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="max-w-full max-h-full flex items-center justify-center"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <img
+                      src={images[selectedIndex]}
+                      alt={`${title} ${selectedIndex + 1}`}
+                      className="max-w-full max-h-[80vh] object-contain select-none"
+                      draggable={false}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Next button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNext();
+                  }}
+                  disabled={selectedIndex === images.length - 1}
+                  className={`absolute right-2 md:right-6 top-1/2 -translate-y-1/2 p-3 text-white/60 hover:text-white transition-all z-10 ${
+                    selectedIndex === images.length - 1 ? "opacity-30 cursor-not-allowed" : "hover:bg-white/10 rounded-full"
+                  }`}
+                  aria-label="Siguiente"
+                >
+                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Keyboard hint - desktop only */}
+              <div className="hidden md:flex justify-center pb-4 text-white/40 text-xs tracking-wider gap-6">
+                <span>← → navegar</span>
+                <span>ESC cerrar</span>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -196,4 +311,3 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
     </div>
   );
 };
-
