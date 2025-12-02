@@ -246,10 +246,11 @@ const ContactSection: React.FC = () => {
           className="relative mb-16"
           variants={itemVariants}
         >
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-3xl transform rotate-1" />
-          <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-[#E0D9CF] shadow-xl">
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-3xl transform rotate-1" style={{ backgroundImage: 'url(/contact-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+          <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-[#E0D9CF] shadow-xl" style={{ backgroundImage: 'url(/contact-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="absolute inset-0 bg-white/40 rounded-3xl" />
             <motion.div
-              className="absolute -top-6 left-8 w-12 h-12 rounded-full bg-[#BE9B5F] flex items-center justify-center"
+              className="absolute -top-6 left-8 w-12 h-12 rounded-full bg-[#BE9B5F] flex items-center justify-center z-20"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -257,8 +258,7 @@ const ContactSection: React.FC = () => {
               <FaFeatherAlt className="w-5 h-5 text-white" />
             </motion.div>
             
-            <div className="text-[#4B5563] leading-relaxed space-y-4 text-lg">
-              <p className="text-2xl text-[#2C2A29] font-medium">¡Hola!</p>
+            <div className="relative z-10 text-[#000000] leading-relaxed space-y-4 text-lg">
               <p>
                 Me emociona muchísimo que se hayan interesado en mi trabajo, de verdad significa 
                 mucho para mí la posibilidad de acompañarlos en un día tan especial. Cada boda 
@@ -275,7 +275,7 @@ const ContactSection: React.FC = () => {
                 Espero con muchísimas ganas que podamos trabajar juntos y ser parte de este 
                 capítulo tan importante en sus vidas.
               </p>
-              <p className="text-[#BE9B5F] font-medium italic text-xl pt-4">
+              <p className="text-[#000000] font-medium italic text-xl pt-4">
                 Con cariño,<br />
                 Fernanda
               </p>

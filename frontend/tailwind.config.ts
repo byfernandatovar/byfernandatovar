@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ["Sprat", "serif"],
-        sans: ["Helvetica", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Sono-Regular", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },

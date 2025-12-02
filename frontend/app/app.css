@@ -11,19 +11,19 @@
   font-display: swap;
 }
 
-/* Helvetica Font - Subtítulos y Textos */
+/* Sono Font - Subtítulos y Textos */
 @font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/Helvetica.woff2') format('woff2'),
-       url('/fonts/Helvetica.woff') format('woff'),
-       url('/fonts/Helvetica.ttf') format('truetype');
+  font-family: 'Sono-Regular';
+  src: url('/fonts/Sono-Regular.woff2') format('woff2'),
+       url('/fonts/Sono-Regular.woff') format('woff'),
+       url('/fonts/Sono-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --font-sans: "Helvetica", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Sono-Regular", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-heading: "Sprat", serif;
 }
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Estilos para subtítulos y textos con Helvetica */
+/* Estilos para subtítulos y textos con Sono */
 p, span, a, li {
   font-family: var(--font-sans);
 }
