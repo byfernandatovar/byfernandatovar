@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface CategoryGalleryProps {
@@ -7,38 +7,11 @@ interface CategoryGalleryProps {
   images: string[];
 }
 
-// Editorial layout configurations for 2-column rows
-type LayoutItem = {
-  width: string;
-  offset?: string;
-};
-
-type LayoutRow = {
-  items: LayoutItem[];
-  gap?: string;
-  justify?: string;
-};
-
-const layoutPatterns: LayoutRow[][] = [
-  // Pattern A: Classic editorial
-  [
-    { items: [{ width: "w-[45%]" }, { width: "w-[35%]", offset: "mt-24" }], justify: "justify-between" },
-    { items: [{ width: "w-[30%]", offset: "mt-12" }, { width: "w-[55%]" }], justify: "justify-between" },
-    { items: [{ width: "w-[50%]" }, { width: "w-[28%]", offset: "mt-32" }], justify: "justify-center", gap: "gap-16" },
-  ],
-  // Pattern B: Asymmetric scatter
-  [
-    { items: [{ width: "w-[35%]" }, { width: "w-[48%]", offset: "mt-16" }], justify: "justify-between" },
-    { items: [{ width: "w-[55%]", offset: "mt-8" }, { width: "w-[32%]" }], justify: "justify-between" },
-    { items: [{ width: "w-[40%]", offset: "mt-20" }, { width: "w-[42%]" }], justify: "justify-center", gap: "gap-12" },
-  ],
-  // Pattern C: Bold asymmetry
-  [
-    { items: [{ width: "w-[52%]" }, { width: "w-[30%]", offset: "mt-28" }], justify: "justify-between" },
-    { items: [{ width: "w-[28%]", offset: "mt-4" }, { width: "w-[50%]" }], justify: "justify-between" },
-    { items: [{ width: "w-[38%]" }, { width: "w-[45%]", offset: "mt-16" }], justify: "justify-between" },
-  ],
-];
+interface ImageWithColumn {
+  src: string;
+  index: number;
+  column: number;
+}
 
 export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
   title,
@@ -46,12 +19,64 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
   images,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [imageHeights, setImageHeights] = useState<number[]>([]);
 
-  // Group images into pairs for the layout rows
-  const imagePairs: string[][] = [];
-  for (let i = 0; i < images.length; i += 2) {
-    imagePairs.push(images.slice(i, Math.min(i + 2, images.length)));
-  }
+  // Distribute images into 3 balanced columns using masonry algorithm
+  const distributedImages = useMemo(() => {
+    const columns: ImageWithColumn[][] = [[], [], []];
+    const columnHeights = [0, 0, 0];
+
+    images.forEach((image, index) => {
+      // Find the column with the shortest height
+      const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+      
+      // Add image to the shortest column
+      columns[shortestColumnIndex].push({
+        src: image,
+        index,
+        column: shortestColumnIndex,
+      });
+
+      // Use actual aspect ratio if available, otherwise use a default estimate
+      // Assuming column width is ~33%, height is proportional to aspect ratio
+      const aspectRatio = imageHeights[index] || 1.3;
+      const estimatedHeight = aspectRatio * 400; // Base height estimation
+      columnHeights[shortestColumnIndex] += estimatedHeight;
+    });
+
+    return columns;
+  }, [images, imageHeights]);
+
+  // Load image dimensions for better balance
+  useEffect(() => {
+    const loadImageDimensions = async () => {
+      const heights: number[] = [];
+      
+      await Promise.all(
+        images.map((src, index) => {
+          return new Promise<void>((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+              // Store aspect ratio to estimate height
+              heights[index] = img.height / img.width;
+              resolve();
+            };
+            img.onerror = () => {
+              heights[index] = 1.2; // Default aspect ratio
+              resolve();
+            };
+            img.src = src;
+          });
+        })
+      );
+
+      setImageHeights(heights);
+    };
+
+    if (images.length > 0) {
+      loadImageDimensions();
+    }
+  }, [images]);
 
   // Lightbox navigation
   const goToPrevious = useCallback(() => {
@@ -109,8 +134,8 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#F0EBE1] py-32 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-[#F0EBE1] py-32 px-8 md:px-16 lg:px-32 xl:px-40">
+      <div className="w-full mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -149,34 +174,27 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
           Volver al Portfolio
         </motion.a>
 
-        {/* Editorial Gallery Layout - Desktop (2 columns) */}
-        <div className="hidden md:block space-y-16 lg:space-y-24">
-          {imagePairs.map((pair, pairIndex) => {
-            const patternSet = layoutPatterns[pairIndex % layoutPatterns.length];
-            const rowConfig = patternSet[pairIndex % patternSet.length];
-            
-            return (
-              <div
-                key={pairIndex}
-                className={`flex items-start ${rowConfig.justify || "justify-between"} ${rowConfig.gap || "gap-8"}`}
-              >
-                {pair.map((image, imageIndex) => {
-                  const globalIndex = pairIndex * 2 + imageIndex;
-                  const itemConfig = rowConfig.items[imageIndex] || rowConfig.items[0];
+        {/* Masonry Gallery Layout - Desktop (3 balanced columns) */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-3 gap-24 lg:gap-32 xl:gap-48">
+            {distributedImages.map((column, columnIndex) => (
+              <div key={columnIndex} className="flex flex-col gap-16 lg:gap-20 xl:gap-24">
+                {column.map((imageItem, itemIndex) => {
+                  const globalDelay = columnIndex * 0.1 + itemIndex * 0.15;
                   
                   return (
                     <motion.div
-                      key={globalIndex}
+                      key={imageItem.index}
                       initial={{ opacity: 0, y: 50 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: imageIndex * 0.12 }}
-                      className={`group cursor-pointer ${itemConfig.width} ${itemConfig.offset || ""}`}
-                      onClick={() => openLightbox(globalIndex)}
+                      transition={{ duration: 0.8, delay: globalDelay }}
+                      className="group cursor-pointer"
+                      onClick={() => openLightbox(imageItem.index)}
                     >
                       <div className="relative overflow-hidden">
                         <motion.img
-                          src={image}
-                          alt={`${title} ${globalIndex + 1}`}
+                          src={imageItem.src}
+                          alt={`${title} ${imageItem.index + 1}`}
                           className="w-full h-auto"
                           whileHover={{ scale: 1.02 }}
                           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -187,8 +205,8 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
                   );
                 })}
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
         {/* Mobile: Clean stacked layout */}
