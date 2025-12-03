@@ -1,8 +1,7 @@
 import { createClient } from '@sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { createImageUrlBuilder, type SanityImageSource } from '@sanity/image-url';
 
-// Sanity client configuration
+// Sanity client configuration (server-side, used in loaders)
 export const client = createClient({
   projectId: process.env.SANITY_PROJECT_ID || '2b266qdi',
   dataset: process.env.SANITY_DATASET || 'production',
@@ -11,7 +10,7 @@ export const client = createClient({
 });
 
 // Image URL builder
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 
 export function urlFor(source: SanityImageSource) {
   return builder.image(source);
