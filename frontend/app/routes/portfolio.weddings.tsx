@@ -1,5 +1,6 @@
 import type { Route } from "./+types/portfolio.weddings";
 import { CategoryGallery } from "../components/portfolio/category-gallery";
+import { getPortfolioCategory, getImageUrls } from "../lib/sanity";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,18 +9,29 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Weddings() {
-  // Array de imágenes (ajustar según las imágenes disponibles)
-  const images = Array.from({ length: 12 }, (_, i) => 
-    `/portfolio-imgs/weddings/${i + 1}.webp`
-  );
+export async function loader() {
+  const category = await getPortfolioCategory("weddings");
+
+  // Fallback to static images if Sanity data is not available
+  const images = category
+    ? getImageUrls(category.images)
+    : Array.from({ length: 12 }, (_, i) => `/portfolio-imgs/weddings/${i + 1}.webp`);
+
+  return {
+    title: category?.title || "Weddings",
+    subtitle: category?.subtitle || "Eternal Moments",
+    images,
+  };
+}
+
+export default function Weddings({ loaderData }: Route.ComponentProps) {
+  const { title, subtitle, images } = loaderData;
 
   return (
     <CategoryGallery
-      title="Weddings"
-      subtitle="Eternal Moments"
+      title={title}
+      subtitle={subtitle}
       images={images}
     />
   );
 }
-
