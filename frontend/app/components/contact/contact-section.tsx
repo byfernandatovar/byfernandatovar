@@ -1,20 +1,6 @@
 import React, { useState, useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import type { Variants } from "framer-motion"
-import {
-  FaHeart,
-  FaEnvelope,
-  FaInstagram,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
-  FaUsers,
-  FaClipboardList,
-  FaCamera,
-  FaPaperPlane,
-  FaRing,
-  FaFeatherAlt,
-} from "react-icons/fa"
-import { GiLovers, GiDiamondRing } from "react-icons/gi"
 
 type FormData = {
   brideFullName: string
@@ -111,20 +97,6 @@ const ContactSection: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center max-w-2xl"
         >
-          <motion.div
-            className="w-24 h-24 mx-auto mb-8 rounded-full bg-[#BE9B5F]/20 flex items-center justify-center"
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <FaHeart className="w-12 h-12 text-[#BE9B5F]" />
-          </motion.div>
           <h2 className="text-4xl md:text-5xl font-bold text-[#2C2A29] mb-6">
             ¡Gracias por escribirme!
           </h2>
@@ -162,149 +134,139 @@ const ContactSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen bg-[#F0EBE1] relative overflow-hidden py-32 px-4"
+      className="bg-[#F0EBE1] relative overflow-hidden"
     >
-      {/* Decorative Elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-72 h-72 rounded-full bg-[#BE9B5F]/8 blur-3xl"
-        style={{ y: y1, rotate: rotate1 }}
-      />
-      <motion.div
-        className="absolute bottom-40 right-20 w-96 h-96 rounded-full bg-[#BE9B5F]/10 blur-3xl"
-        style={{ y: y2 }}
-      />
-      
-
-      {/* Decorative lines */}
-      <svg
-        className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]"
-        viewBox="0 0 1000 1000"
-        preserveAspectRatio="none"
-      >
-        <motion.path
-          d="M0,200 Q250,100 500,200 T1000,200"
-          fill="none"
-          stroke="#BE9B5F"
-          strokeWidth="2"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 3, ease: "easeInOut" }}
+      {/* Hero Section with Image Background */}
+      <div className="relative min-h-screen flex items-center justify-center">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/contact-bg.jpg)' }}
         />
-        <motion.path
-          d="M0,500 Q250,400 500,500 T1000,500"
-          fill="none"
-          stroke="#BE9B5F"
-          strokeWidth="2"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
-        />
-        <motion.path
-          d="M0,800 Q250,700 500,800 T1000,800"
-          fill="none"
-          stroke="#BE9B5F"
-          strokeWidth="2"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 3, delay: 1, ease: "easeInOut" }}
-        />
-      </svg>
-
-      <motion.div
-        className="container mx-auto max-w-5xl relative z-10"
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        {/* Header Section */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <motion.div
-            className="inline-flex items-center gap-3 mb-6"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="h-px w-12 bg-[#BE9B5F]" />
-            <FaHeart className="text-[#BE9B5F] w-4 h-4" />
-            <div className="h-px w-12 bg-[#BE9B5F]" />
-          </motion.div>
-          
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2C2A29] mb-8">
-            CONTÁCTAME
-          </h1>
-          
-          <motion.div
-            className="h-1 w-24 bg-[#BE9B5F] mx-auto rounded-full mb-10"
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          />
-        </motion.div>
-
-        {/* Personal Message Card */}
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        
+        {/* Decorative Elements */}
         <motion.div
-          className="relative mb-16"
-          variants={itemVariants}
+          className="absolute top-20 left-10 w-72 h-72 rounded-full bg-[#BE9B5F]/10 blur-3xl"
+          style={{ y: y1, rotate: rotate1 }}
+        />
+        <motion.div
+          className="absolute bottom-40 right-20 w-96 h-96 rounded-full bg-[#BE9B5F]/15 blur-3xl"
+          style={{ y: y2 }}
+        />
+
+        {/* Content Overlay */}
+        <motion.div
+          className="container mx-auto max-w-5xl relative z-10 px-4 py-32"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containerVariants}
         >
-          <div className="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-3xl transform rotate-1" style={{ backgroundImage: 'url(/contact-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
-          <div className="relative bg-white/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-[#E0D9CF] shadow-xl" style={{ backgroundImage: 'url(/contact-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute inset-0 bg-white/40 rounded-3xl" />
+          {/* Header Section */}
+          <motion.div className="text-center mb-16" variants={itemVariants}>
             <motion.div
-              className="absolute -top-6 left-8 w-12 h-12 rounded-full bg-[#BE9B5F] flex items-center justify-center z-20"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+              className="inline-flex items-center gap-3 mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <FaFeatherAlt className="w-5 h-5 text-white" />
+              <div className="h-px w-12 bg-[#BE9B5F]" />
+              
             </motion.div>
             
-            <div className="relative z-10 text-[#000000] leading-relaxed space-y-4 text-lg">
-              <p>
-                Me emociona muchísimo que se hayan interesado en mi trabajo, de verdad significa 
-                mucho para mí la posibilidad de acompañarlos en un día tan especial. Cada boda 
-                es única y mi intención siempre es contar su historia de la forma más auténtica 
-                y cercana posible.
-              </p>
-              <p>
-                Para poder conocerlos mejor y tener más claridad sobre lo que esperan de la 
-                cobertura, les comparto este cuestionario. Sus respuestas me ayudarán a personalizar 
-                la experiencia y asegurar que cada detalle importante quede guardado en recuerdos 
-                que duren para siempre.
-              </p>
-              <p>
-                Espero con muchísimas ganas que podamos trabajar juntos y ser parte de este 
-                capítulo tan importante en sus vidas.
-              </p>
-              <p className="text-[#000000] font-medium italic text-xl pt-4">
-                Con cariño,<br />
-                Fernanda
-              </p>
-            </div>
-          </div>
-        </motion.div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 drop-shadow-2xl">
+              CONTÁCTAME
+            </h1>
+            
+            <motion.div
+              className="h-1 w-24 bg-[#BE9B5F] mx-auto rounded-full mb-10"
+              initial={{ width: 0 }}
+              animate={{ width: 96 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+          </motion.div>
 
-        {/* Form Section */}
+          {/* Personal Message Card */}
+          <motion.div
+            className="relative"
+            variants={itemVariants}
+          >
+            <div className="relative bg-transparent rounded-3xl p-8 md:p-12">
+              
+              <div className="relative z-10 text-white leading-relaxed space-y-4 text-lg drop-shadow-lg">
+                <p>
+                  Me emociona muchísimo que se hayan interesado en mi trabajo, de verdad significa 
+                  mucho para mí la posibilidad de acompañarlos en un día tan especial. Cada boda 
+                  es única y mi intención siempre es contar su historia de la forma más auténtica 
+                  y cercana posible.
+                </p>
+                <p>
+                  Para poder conocerlos mejor y tener más claridad sobre lo que esperan de la 
+                  cobertura, les comparto este cuestionario. Sus respuestas me ayudarán a personalizar 
+                  la experiencia y asegurar que cada detalle importante quede guardado en recuerdos 
+                  que duren para siempre.
+                </p>
+                <p>
+                  Espero con muchísimas ganas que podamos trabajar juntos y ser parte de este 
+                  capítulo tan importante en sus vidas.
+                </p>
+                <p className="text-white font-medium italic text-xl pt-4">
+                  Con cariño,<br />
+                  Fernanda
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Form Section - Below the image */}
+      <div className="bg-[#F0EBE1] relative py-20 px-4">
+        {/* Decorative lines */}
+        <svg
+          className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]"
+          viewBox="0 0 1000 1000"
+          preserveAspectRatio="none"
+        >
+          <motion.path
+            d="M0,200 Q250,100 500,200 T1000,200"
+            fill="none"
+            stroke="#BE9B5F"
+            strokeWidth="2"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
+          />
+          <motion.path
+            d="M0,500 Q250,400 500,500 T1000,500"
+            fill="none"
+            stroke="#BE9B5F"
+            strokeWidth="2"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+          />
+        </svg>
+
         <motion.form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="space-y-12"
+          className="container mx-auto max-w-5xl space-y-12 relative z-10"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
         >
           {/* Section: About You */}
           <motion.div variants={itemVariants}>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-[#BE9B5F]/10 flex items-center justify-center border border-[#BE9B5F]/20">
-                <GiLovers className="w-6 h-6 text-[#BE9B5F]" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-[#2C2A29]">Sobre Ustedes</h2>
-                <p className="text-sm text-[#6B7280]">Cuéntenme quiénes son</p>
-              </div>
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-[#2C2A29]">Sobre Ustedes</h2>
+              <p className="text-sm text-[#6B7280]">Cuéntenme quiénes son</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
-                icon={<FaRing />}
                 label="Nombre completo de la novia"
                 name="brideFullName"
                 value={formData.brideFullName}
@@ -313,7 +275,6 @@ const ContactSection: React.FC = () => {
                 required
               />
               <FormField
-                icon={<FaRing />}
                 label="Nombre completo del novio"
                 name="groomFullName"
                 value={formData.groomFullName}
@@ -322,7 +283,6 @@ const ContactSection: React.FC = () => {
                 required
               />
               <FormField
-                icon={<FaEnvelope />}
                 label="Email"
                 name="email"
                 type="email"
@@ -332,7 +292,6 @@ const ContactSection: React.FC = () => {
                 required
               />
               <FormField
-                icon={<FaInstagram />}
                 label="Instagram"
                 name="instagram"
                 value={formData.instagram}
@@ -348,25 +307,18 @@ const ContactSection: React.FC = () => {
             variants={itemVariants}
           >
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#BE9B5F]/30 to-transparent" />
-            <GiDiamondRing className="w-6 h-6 text-[#BE9B5F]/40" />
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#BE9B5F]/30 to-transparent" />
           </motion.div>
 
           {/* Section: Wedding Details */}
           <motion.div variants={itemVariants}>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-[#BE9B5F]/10 flex items-center justify-center border border-[#BE9B5F]/20">
-                <FaCalendarAlt className="w-5 h-5 text-[#BE9B5F]" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-[#2C2A29]">Detalles de la Boda</h2>
-                <p className="text-sm text-[#6B7280]">La información de su gran día</p>
-              </div>
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-[#2C2A29]">Detalles de la Boda</h2>
+              <p className="text-sm text-[#6B7280]">La información de su gran día</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <FormField
-                icon={<FaCalendarAlt />}
                 label="Fecha de boda"
                 name="weddingDate"
                 type="date"
@@ -375,7 +327,6 @@ const ContactSection: React.FC = () => {
                 required
               />
               <FormField
-                icon={<FaMapMarkerAlt />}
                 label="Ciudad de boda"
                 name="weddingCity"
                 value={formData.weddingCity}
@@ -384,7 +335,6 @@ const ContactSection: React.FC = () => {
                 required
               />
               <FormField
-                icon={<FaMapMarkerAlt />}
                 label="Venue de boda"
                 name="weddingVenue"
                 value={formData.weddingVenue}
@@ -392,7 +342,6 @@ const ContactSection: React.FC = () => {
                 placeholder="Nombre del venue"
               />
               <FormField
-                icon={<FaUsers />}
                 label="Número de invitados"
                 name="guestCount"
                 value={formData.guestCount}
@@ -400,7 +349,6 @@ const ContactSection: React.FC = () => {
                 placeholder="Ej: 150"
               />
               <FormField
-                icon={<FaClipboardList />}
                 label="Wedding planner"
                 name="weddingPlanner"
                 value={formData.weddingPlanner}
@@ -408,7 +356,6 @@ const ContactSection: React.FC = () => {
                 placeholder="Nombre del wedding planner (si aplica)"
               />
               <FormField
-                icon={<FaCamera />}
                 label="Presupuesto estimado"
                 name="budget"
                 value={formData.budget}
@@ -429,14 +376,9 @@ const ContactSection: React.FC = () => {
 
           {/* Section: Your Story */}
           <motion.div variants={itemVariants}>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-[#BE9B5F]/10 flex items-center justify-center border border-[#BE9B5F]/20">
-                <FaFeatherAlt className="w-5 h-5 text-[#BE9B5F]" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-[#2C2A29]">Su Historia</h2>
-                <p className="text-sm text-[#6B7280]">Me encanta escuchar sus historias</p>
-              </div>
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-[#2C2A29]">Su Historia</h2>
+              <p className="text-sm text-[#6B7280]">Me encanta escuchar sus historias</p>
             </div>
             
             <div className="space-y-6">
@@ -485,7 +427,6 @@ const ContactSection: React.FC = () => {
                 ) : (
                   <>
                     Enviar mensaje
-                    <FaPaperPlane className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                   </>
                 )}
               </span>
@@ -500,13 +441,12 @@ const ContactSection: React.FC = () => {
             Te responderé en un plazo de 24-48 horas
           </motion.p>
         </motion.form>
-      </motion.div>
+      </div>
     </section>
   )
 }
 
 type FormFieldProps = {
-  icon: React.ReactNode
   label: string
   name: string
   type?: string
@@ -517,7 +457,6 @@ type FormFieldProps = {
 }
 
 const FormField: React.FC<FormFieldProps> = ({
-  icon,
   label,
   name,
   type = "text",
@@ -539,30 +478,21 @@ const FormField: React.FC<FormFieldProps> = ({
         {label}
         {required && <span className="text-[#BE9B5F] ml-1">*</span>}
       </label>
-      <div className="relative">
-        <div
-          className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors duration-300 ${
-            isFocused ? "text-[#BE9B5F]" : "text-[#9CA3AF]"
-          }`}
-        >
-          {icon}
-        </div>
-        <input
-          type={type}
-          name={name}
-          value={value}
-          onChange={onChange}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          placeholder={placeholder}
-          required={required}
-          className={`w-full pl-12 pr-4 py-4 bg-white/80 backdrop-blur-sm border-2 rounded-xl text-[#2C2A29] placeholder:text-[#9CA3AF] transition-all duration-300 focus:outline-none ${
-            isFocused
-              ? "border-[#BE9B5F] shadow-lg shadow-[#BE9B5F]/10"
-              : "border-[#E0D9CF] hover:border-[#BE9B5F]/50"
-          }`}
-        />
-      </div>
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        placeholder={placeholder}
+        required={required}
+        className={`w-full px-4 py-4 bg-white/80 backdrop-blur-sm border-2 rounded-xl text-[#2C2A29] placeholder:text-[#9CA3AF] transition-all duration-300 focus:outline-none ${
+          isFocused
+            ? "border-[#BE9B5F] shadow-lg shadow-[#BE9B5F]/10"
+            : "border-[#E0D9CF] hover:border-[#BE9B5F]/50"
+        }`}
+      />
     </motion.div>
   )
 }

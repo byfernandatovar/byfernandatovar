@@ -11,19 +11,19 @@
   font-display: swap;
 }
 
-/* Sono Font - Subtítulos y Textos */
+/* MrsEavesXLSerif Font - Subtítulos y Textos */
 @font-face {
-  font-family: 'Sono-Regular';
-  src: url('/fonts/Sono-Regular.woff2') format('woff2'),
-       url('/fonts/Sono-Regular.woff') format('woff'),
-       url('/fonts/Sono-Regular.ttf') format('truetype');
+  font-family: 'MrsEavesXLSerif';
+  src: url('/fonts/MrsEavesXLSerif.woff2') format('woff2'),
+       url('/fonts/MrsEavesXLSerif.woff') format('woff'),
+       url('/fonts/MrsEavesXLSerif.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --font-sans: "Sono-Regular", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "MrsEavesXLSerif", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-heading: "Sprat", serif;
 }
@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Estilos para subtítulos y textos con Sono */
+/* Estilos para subtítulos y textos con MrsEavesXLSerif */
 p, span, a, li {
   font-family: var(--font-sans);
 }
