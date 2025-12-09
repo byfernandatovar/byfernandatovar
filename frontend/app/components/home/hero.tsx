@@ -197,36 +197,36 @@ import React, {
     {
       url: "/home-imgs/hero/hero1.webp",
       author: "Branislav Rodman",
-      link: "https://unsplash.com/photos/a-black-and-white-photo-of-a-woman-brushing-her-teeth-r1SjnJL5tf0",
+      link: "/portfolio",
       title: "A Black and White Photo of a Woman Brushing Her Teeth",
     },
     {
       url: "/home-imgs/hero/hero3.webp",
-      link: "https://unsplash.com/photos/a-painting-of-a-palm-leaf-on-a-multicolored-background-AaNPwrSNOFE",
+      link: "/portfolio",
       title: "Neon Palm",
       author: "Tim Mossholder",
     },
     {
       url: "/home-imgs/hero/hero2.webp",
-      link: "https://unsplash.com/photos/a-blurry-photo-of-a-crowd-of-people-UgbxzloNGsc",
+      link: "/portfolio",
       author: "ANDRII SOLOK",
       title: "A blurry photo of a crowd of people",
     },
     {
       url: "/home-imgs/hero/hero4.webp",
-      link: "https://unsplash.com/photos/rippling-crystal-blue-water-9-OCsKoyQlk",
+      link: "/portfolio",
       author: "Wesley Tingey",
       title: "Rippling Crystal Blue Water",
     },
     {
       url: "/home-imgs/hero/hero5.webp",
-      link: "https://unsplash.com/de/photos/mann-im-schwarzen-hemd-unter-blauem-himmel-m8RDNiuEXro",
+      link: "/portfolio",
       author: "Serhii Tyaglovsky",
       title: "Mann im schwarzen Hemd unter blauem Himmel",
     },
     {
       url: "/home-imgs/hero/hero6.webp",
-      link: "https://unsplash.com/photos/a-woman-with-a-flower-crown-on-her-head-0S3muIttbsY",
+      link: "/portfolio",
       author: "Vladimir Yelizarov",
       title: "A women with a flower crown on her head",
     },
@@ -234,12 +234,12 @@ import React, {
       url: "/home-imgs/hero/hero7.webp",
       title: "A blurry photo of white flowers in a field",
       author: "Eugene Golovesov",
-      link: "https://unsplash.com/photos/a-blurry-photo-of-white-flowers-in-a-field-6qbx0lzGPyc",
+      link: "/portfolio",
     },
     {
       url: "/home-imgs/hero/hero8.webp",
       author: "Mathilde Langevin",
-      link: "https://unsplash.com/photos/a-table-topped-with-two-wine-glasses-and-plates-Ig0gRAHspV0",
+      link: "/portfolio",
       title: "A table topped with two wine glasses and plates",
     },
   ];
@@ -274,75 +274,91 @@ import React, {
   
         <Floating sensitivity={-1} className="overflow-hidden">
           <FloatingElement depth={0.5} className="top-[8%] left-[11%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[0].url}
-              alt={exampleImages[0].title}
-              className="w-16 h-16 md:w-24 md:h-24 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[0].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[0].url}
+                alt={exampleImages[0].title}
+                className="w-16 h-16 md:w-24 md:h-24 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={1} className="top-[10%] left-[32%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[1].url}
-              alt={exampleImages[1].title}
-              className="w-20 h-20 md:w-28 md:h-28 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[1].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[1].url}
+                alt={exampleImages[1].title}
+                className="w-20 h-20 md:w-28 md:h-28 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={2} className="top-[2%] left-[53%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[2].url}
-              alt={exampleImages[2].title}
-              className="w-28 h-40 md:w-40 md:h-52 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[2].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[2].url}
+                alt={exampleImages[2].title}
+                className="w-28 h-40 md:w-40 md:h-52 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={1} className="top-[0%] left-[83%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[3].url}
-              alt={exampleImages[3].title}
-              className="w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[3].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[3].url}
+                alt={exampleImages[3].title}
+                className="w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={1} className="top-[40%] left-[2%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[4].url}
-              alt={exampleImages[4].title}
-              className="w-28 h-28 md:w-36 md:h-36 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[4].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[4].url}
+                alt={exampleImages[4].title}
+                className="w-28 h-28 md:w-36 md:h-36 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={2} className="top-[70%] left-[77%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[7].url}
-              alt={exampleImages[7].title}
-              className="w-28 h-28 md:w-36 md:h-48 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[7].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[7].url}
+                alt={exampleImages[7].title}
+                className="w-28 h-28 md:w-36 md:h-48 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={4} className="top-[73%] left-[15%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[5].url}
-              alt={exampleImages[5].title}
-              className="w-40 md:w-52 h-full object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[5].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[5].url}
+                alt={exampleImages[5].title}
+                className="w-40 md:w-52 h-full object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
   
           <FloatingElement depth={1} className="top-[80%] left-[50%]">
-            <motion.img
-              initial={{ opacity: 0 }}
-              src={exampleImages[6].url}
-              alt={exampleImages[6].title}
-              className="w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
-            />
+            <a href={exampleImages[6].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[6].url}
+                alt={exampleImages[6].title}
+                className="w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
           </FloatingElement>
         </Floating>
       </div>
