@@ -59,13 +59,13 @@ const FlyoutNav = () => {
 
 const Logo = () => {
   return (
-    <div className="flex items-center">
+    <a href="/" className="flex items-center">
       <img
         src="/logo.png"
         alt="Logo"
         className="h-16 w-auto"
       />
-    </div>
+    </a>
   );
 };
 
