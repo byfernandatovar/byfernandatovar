@@ -48,23 +48,46 @@ const ContactSection: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string>("")
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // Limpiar mensaje de error al escribir
+    if (errorMessage) setErrorMessage("")
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrorMessage("")
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      const formDataToSend = new FormData()
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value)
+      })
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formDataToSend,
+      })
+      
+      const result = await response.json()
+      
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        setErrorMessage(result.error || 'Error al enviar el formulario. Por favor intenta nuevamente.')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setErrorMessage('Error de conexión. Por favor verifica tu internet e intenta nuevamente.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const containerVariants: Variants = {
@@ -400,6 +423,18 @@ const ContactSection: React.FC = () => {
               />
             </div>
           </motion.div>
+
+          {/* Error Message */}
+          {errorMessage && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-red-50 border-2 border-red-200 rounded-xl p-4 text-center"
+              variants={itemVariants}
+            >
+              <p className="text-red-600 font-medium">{errorMessage}</p>
+            </motion.div>
+          )}
 
           {/* Submit Button */}
           <motion.div 

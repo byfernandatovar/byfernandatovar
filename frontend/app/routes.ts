@@ -9,4 +9,5 @@ export default [
   route("portfolio/portraits", "routes/portfolio.portraits.tsx"),
   route("portfolio/moments", "routes/portfolio.moments.tsx"),
   route("portfolio/couples", "routes/portfolio.couples.tsx"),
+  route("api/contact", "routes/api.contact.ts"),
 ] satisfies RouteConfig;
