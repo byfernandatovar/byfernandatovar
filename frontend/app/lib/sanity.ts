@@ -41,7 +41,11 @@ export async function getPortfolioCategory(slug: string): Promise<PortfolioCateg
     name,
     title,
     subtitle,
-    images
+    "images": images[] | order(_key asc) {
+      _key,
+      asset,
+      alt
+    }
   }`;
 
   return client.fetch(query, { slug });
