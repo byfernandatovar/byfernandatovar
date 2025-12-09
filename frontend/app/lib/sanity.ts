@@ -41,7 +41,7 @@ export async function getPortfolioCategory(slug: string): Promise<PortfolioCateg
     name,
     title,
     subtitle,
-    "images": images[] | order(_key asc) {
+    "images": images[] {
       _key,
       asset,
       alt
@@ -57,8 +57,19 @@ export function getImageUrls(images: SanityImage[] | undefined): string[] {
     return [];
   }
 
-  return images.map((image) =>
-    urlFor(image).auto('format').quality(85).url()
-  );
+  return images
+    .map((image) => {
+      try {
+        if (!image || !image.asset) {
+          return null;
+        }
+        const url = urlFor(image).auto('format').quality(85).url();
+        return url || null;
+      } catch (error) {
+        console.warn('Error generating image URL:', error);
+        return null;
+      }
+    })
+    .filter((url): url is string => url !== null && url !== undefined && url !== '');
 }
 
