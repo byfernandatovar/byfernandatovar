@@ -12,8 +12,12 @@ export function HomeCta2() {
           — La pasión de reflejar y documentar el sueño más grande.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <Button variant="primary" className="my-10">Agendar sesión</Button>
-        <Button variant="secondary">Portafolio</Button>
+          <a href="/contact">
+            <Button variant="primary" className="my-10">Agendar sesión</Button>
+          </a>
+          <a href="/portfolio">
+            <Button variant="secondary">Portafolio</Button>
+          </a>
         </div>
       </div>
     </div>

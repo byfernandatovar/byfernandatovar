@@ -29,31 +29,20 @@ const socialLinks: FooterLink[] = [
 
 const footerLinkGroups: FooterLinkGroup[] = [
   {
-    label: "Servicios",
+    label: "Navegación",
     links: [
-      { title: "Bodas", href: "/bodas" },
-      { title: "Sesiones de Compromiso", href: "/compromiso" },
-      { title: "Sesiones de Parejas", href: "/parejas" },
-      { title: "Trash the Dress", href: "/trash-the-dress" },
-      { title: "Aniversarios", href: "/aniversarios" },
+      { title: "Inicio", href: "/" },
+      { title: "Sobre mí", href: "/about" },
+      { title: "Contacto", href: "/contact" },
     ],
   },
   {
     label: "Portafolio",
     links: [
-      { title: "Bodas Completas", href: "/portfolio/bodas" },
-      { title: "Momentos Íntimos", href: "/portfolio/momentos" },
-      { title: "Detalles y Decoración", href: "/portfolio/detalles" },
-      { title: "Testimonios", href: "/testimonios" },
-    ],
-  },
-  {
-    label: "Información",
-    links: [
-      { title: "Sobre Mí", href: "/about" },
-      { title: "Mi Proceso", href: "/proceso" },
-      { title: "Paquetes", href: "/paquetes" },
-      { title: "Contacto", href: "/contacto" },
+      { title: "Weddings", href: "/portfolio/weddings" },
+      { title: "Portraits", href: "/portfolio/portraits" },
+      { title: "Moments", href: "/portfolio/moments" },
+      { title: "Couples", href: "/portfolio/couples" },
     ],
   },
 ];
@@ -64,41 +53,24 @@ export default function Footer() {
     <footer className="w-full bg-[#F0EBE1]">
       <div className="flex w-full flex-col gap-10 px-4 py-10 md:px-12 lg:px-20 xl:px-32">
         {/* Bloque principal */}
-        <div className="flex flex-col gap-8 md:flex-row">
-          {/* Columna logo + descripción + redes */}
-          <div className="w-full max-w-sm min-w-64 space-y-4 relative z-[1]">
+        <div className="grid gap-6 md:grid-cols-[1fr_1.2fr_0.8fr] md:gap-10 lg:gap-12">
+          {/* Columna logo + descripción */}
+          <div className="w-full space-y-4 relative z-[1]">
             <img
               src="/textlogo-2.png"
               alt="Logo"
-              className="w-auto h-24 object-contain"
+              className="w-auto h-20 object-contain"
             />
-            <p className="text-[#7D7873] mt-4 text-sm">
+            <p className="text-[#7D7873] mt-4 text-sm leading-relaxed">
               Creo en capturar los momentos auténticos y sin guion que hacen
               única tu historia. Mi enfoque combina el arte editorial con la
               narración documental para crear imágenes atemporales que
               atesorarás por generaciones.
             </p>
-            <div className="flex gap-2 mt-4">
-              {socialLinks.map((link) => {
-                const Icon = link.icon;
-                return Icon ? (
-                  <a
-                    key={link.title}
-                    href={link.href}
-                    aria-label={link.title}
-                    className="inline-flex size-8 items-center justify-center rounded-md border bg-[#7d7873] transition hover:opacity-90"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Icon className="size-4 text-[#FAF8F3]" />
-                  </a>
-                ) : null;
-              })}
-            </div>
           </div>
 
           {/* Columnas de links */}
-          <div className="flex-1 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 relative z-[1]">
+          <div className="grid gap-8 sm:grid-cols-2 relative z-[1]">
             {footerLinkGroups.map((group) => (
               <div key={group.label} className="w-full">
                 <h3 className="text-sm text-[#7D7873] uppercase tracking-wide">
@@ -119,6 +91,30 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Columna redes sociales */}
+          <div className="flex flex-col items-start space-y-4 relative z-[1]">
+            <h3 className="text-sm text-[#7D7873] uppercase tracking-wide">
+              Sígueme
+            </h3>
+            <div className="flex gap-3">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return Icon ? (
+                  <a
+                    key={link.title}
+                    href={link.href}
+                    aria-label={link.title}
+                    className="inline-flex size-10 items-center justify-center rounded-md transition hover:opacity-75"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Icon className="size-5 text-[#7D7873]" />
+                  </a>
+                ) : null;
+              })}
+            </div>
           </div>
         </div>
 

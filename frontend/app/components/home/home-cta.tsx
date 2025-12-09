@@ -12,13 +12,14 @@ export function HomeCta() {
           Permíteme capturar los momentos más hermosos de tu vida.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            variant="primary"
-            onClick={() => console.log("Consulta enviada")}
-          >
-            Agenda tu sesión
-          </Button>
-          <Button variant="secondary">Conocer más</Button>
+          <a href="/contact">
+            <Button variant="primary">
+              Agenda tu sesión
+            </Button>
+          </a>
+          <a href="/about">
+            <Button variant="secondary">Conocer más</Button>
+          </a>
         </div>
       </div>
     </section>
