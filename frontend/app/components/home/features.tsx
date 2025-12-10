@@ -2,12 +2,11 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Button from "~/ui/button";
 
 interface Section {
   id: number;
   title: string;
-  description: string;
+  description: React.ReactNode;
   imageUrl: string;
   reverse?: boolean;
 }
@@ -15,27 +14,36 @@ interface Section {
 const sections: Section[] = [
   {
     id: 1,
-    title: "Momentos Eternos",
-    description:
-      "Capturo la esencia de su amor en cada mirada, sonrisa y abrazo. Cada instante se transforma en una historia visual que perdurará para siempre, reflejando la autenticidad de su día más especial.",
+    title: "The Language of Presence",
+    description: (
+      <>
+        Where <em>emotion</em> becomes form and time slows into frame
+      </>
+    ),
     imageUrl:
       "/home-imgs/hero/hero9.webp",
     reverse: false,
   },
   {
     id: 2,
-    title: "Arte Natural",
-    description:
-      "Fotografía documental que fluye con la naturalidad de su celebración. Sin poses forzadas, solo la magia espontánea de un día único, donde cada emoción se revela en su forma más pura y hermosa.",
+    title: "Light as Memory",
+    description: (
+      <>
+        Preserving <em>presence</em> with a quiet, documentary gaze
+      </>
+    ),
     imageUrl:
       "/home-imgs/hero/hero10.webp",
     reverse: true,
   },
   {
     id: 3,
-    title: "Su Historia",
-    description:
-      "Más que fotografías, me gusta crear el relato visual de su amor. Desde los preparativos íntimos hasta el último baile, documento cada capítulo de su jornada hacia la felicidad eterna.",
+    title: "Echoes in Light",
+    description: (
+      <>
+        Fleeting gestures shaped into gentle <em>permanence</em>
+      </>
+    ),
     imageUrl:
       "/home-imgs/hero/hero11.webp",
     reverse: false,
@@ -105,7 +113,7 @@ const Features: React.FC = () => {
               </h2>
               <motion.p
                 style={{ y: isMobile ? 0 : translateContents[index] }}
-                className="text-black/70 max-w-sm mt-6 md:mt-10"
+                className="text-black/70 text-lg md:text-xl max-w-sm mt-6 md:mt-10"
               >
                 {section.description}
               </motion.p>

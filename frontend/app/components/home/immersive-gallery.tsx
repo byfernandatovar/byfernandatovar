@@ -103,13 +103,9 @@ const ImmersiveScrollGallery: React.FC<ImmersiveScrollGalleryProps> = ({
             className="text-[#4b3f33] text-2xl md:text-3xl font-normal font-heading"
             style={{ lineHeight: 1.2 }}
           >
-            Especializada en bodas y parejas, capturo los momentos más preciosos
-            del amor mexicano — desde miradas cómplices hasta celebraciones
-            llenas de color y tradición. Cada sesión es una historia de conexión
-            genuina, donde inmortalizo la alegría, la intimidad y la magia
-            cultural que hace únicas a las parejas mexicanas. Mi lente
-            transforma emociones efímeras en arte eterno, celebrando el romance
-            con elegancia contemporánea.
+            Specializing in weddings and couples, the work centers presence as the heart of every story.
+            It seeks to capture what endures—authentic gestures, unspoken glances, and moments that reveal the essence of each connection.
+            Through a sensitive, luminous gaze, the ephemeral is transformed into lasting memories, allowing light to write a subtle poetry within every photograph.
           </h1>
         </motion.div>
       </div>
