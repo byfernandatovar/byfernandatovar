@@ -195,52 +195,64 @@ import React, {
   // ======================
   const exampleImages = [
     {
-      url: "/home-imgs/hero/hero1.webp",
-      author: "Branislav Rodman",
+      url: "/home-imgs/hero/hero-1.webp",
+      author: "Fernanda Tovar",
       link: "/portfolio",
-      title: "A Black and White Photo of a Woman Brushing Her Teeth",
+      title: "Photography Portfolio",
     },
     {
-      url: "/home-imgs/hero/hero3.webp",
+      url: "/home-imgs/hero/hero-2.webp",
       link: "/portfolio",
-      title: "Neon Palm",
-      author: "Tim Mossholder",
+      title: "Photography Portfolio",
+      author: "Fernanda Tovar",
     },
     {
-      url: "/home-imgs/hero/hero2.webp",
+      url: "/home-imgs/hero/hero-3.webp",
       link: "/portfolio",
-      author: "ANDRII SOLOK",
-      title: "A blurry photo of a crowd of people",
+      author: "Fernanda Tovar",
+      title: "Photography Portfolio",
     },
     {
-      url: "/home-imgs/hero/hero4.webp",
+      url: "/home-imgs/hero/hero-4.webp",
       link: "/portfolio",
-      author: "Wesley Tingey",
-      title: "Rippling Crystal Blue Water",
+      author: "Fernanda Tovar",
+      title: "Photography Portfolio",
     },
     {
-      url: "/home-imgs/hero/hero5.webp",
+      url: "/home-imgs/hero/hero-5.webp",
       link: "/portfolio",
-      author: "Serhii Tyaglovsky",
-      title: "Mann im schwarzen Hemd unter blauem Himmel",
+      author: "Fernanda Tovar",
+      title: "Photography Portfolio",
     },
     {
-      url: "/home-imgs/hero/hero6.webp",
+      url: "/home-imgs/hero/hero-6.webp",
       link: "/portfolio",
-      author: "Vladimir Yelizarov",
-      title: "A women with a flower crown on her head",
+      author: "Fernanda Tovar",
+      title: "Photography Portfolio",
     },
     {
-      url: "/home-imgs/hero/hero7.webp",
-      title: "A blurry photo of white flowers in a field",
-      author: "Eugene Golovesov",
+      url: "/home-imgs/hero/hero-7.webp",
+      author: "Fernanda Tovar",
       link: "/portfolio",
+      title: "Photography Portfolio",
     },
     {
-      url: "/home-imgs/hero/hero8.webp",
-      author: "Mathilde Langevin",
+      url: "/home-imgs/hero/hero-8.webp",
+      author: "Fernanda Tovar",
       link: "/portfolio",
-      title: "A table topped with two wine glasses and plates",
+      title: "Photography Portfolio",
+    },
+    {
+      url: "/home-imgs/hero/hero-9.webp",
+      author: "Fernanda Tovar",
+      link: "/portfolio",
+      title: "Photography Portfolio",
+    },
+    {
+      url: "/home-imgs/hero/hero-10.webp",
+      author: "Fernanda Tovar",
+      link: "/portfolio",
+      title: "Photography Portfolio",
     },
   ];
   
@@ -357,6 +369,28 @@ import React, {
                 src={exampleImages[6].url}
                 alt={exampleImages[6].title}
                 className="w-24 h-24 md:w-32 md:h-32 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
+          </FloatingElement>
+
+          <FloatingElement depth={1.5} className="top-[25%] left-[65%]">
+            <a href={exampleImages[8].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[8].url}
+                alt={exampleImages[8].title}
+                className="w-20 h-20 md:w-28 md:h-28 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
+              />
+            </a>
+          </FloatingElement>
+
+          <FloatingElement depth={2.5} className="top-[55%] left-[90%]">
+            <a href={exampleImages[9].link}>
+              <motion.img
+                initial={{ opacity: 0 }}
+                src={exampleImages[9].url}
+                alt={exampleImages[9].title}
+                className="w-24 h-32 md:w-32 md:h-44 object-cover hover:scale-105 duration-200 cursor-pointer transition-transform"
               />
             </a>
           </FloatingElement>
