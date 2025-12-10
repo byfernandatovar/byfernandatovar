@@ -127,28 +127,6 @@ const ContactSection: React.FC = () => {
             Me emociona mucho conocer su historia. Les responderé muy pronto para comenzar
             a planear juntos este capítulo tan especial de sus vidas.
           </p>
-          <motion.div
-            className="flex justify-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 rounded-full bg-[#BE9B5F]"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  delay: i * 0.2,
-                }}
-              />
-            ))}
-          </motion.div>
         </motion.div>
       </section>
     )
@@ -164,7 +142,7 @@ const ContactSection: React.FC = () => {
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/contact-bg.jpg)' }}
+          style={{ backgroundImage: 'url(/contact-bg.webp)' }}
         />
         
         {/* Overlay */}
@@ -320,6 +298,7 @@ const ContactSection: React.FC = () => {
                 value={formData.instagram}
                 onChange={handleChange}
                 placeholder="@usuario"
+                required
               />
             </div>
           </motion.div>
@@ -363,6 +342,7 @@ const ContactSection: React.FC = () => {
                 value={formData.weddingVenue}
                 onChange={handleChange}
                 placeholder="Nombre del venue"
+                required
               />
               <FormField
                 label="Número de invitados"
@@ -370,6 +350,7 @@ const ContactSection: React.FC = () => {
                 value={formData.guestCount}
                 onChange={handleChange}
                 placeholder="Ej: 150"
+                required
               />
               <FormField
                 label="Wedding planner"
@@ -377,13 +358,16 @@ const ContactSection: React.FC = () => {
                 value={formData.weddingPlanner}
                 onChange={handleChange}
                 placeholder="Nombre del wedding planner (si aplica)"
+                required
               />
               <FormField
-                label="Presupuesto estimado"
+                label="Presupuesto estimado (MXN)"
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
                 placeholder="Para la cobertura fotográfica"
+                prefix="$"
+                required
               />
             </div>
           </motion.div>
@@ -412,6 +396,7 @@ const ContactSection: React.FC = () => {
                 onChange={handleChange}
                 placeholder="¿Durará todo el fin de semana o te centrarás en un solo día? ¿Qué momentos y eventos son los más importantes para ti y que quieres documentar?"
                 rows={5}
+                required
               />
               <TextAreaField
                 label="Cuéntame más sobre su historia"
@@ -420,6 +405,7 @@ const ContactSection: React.FC = () => {
                 onChange={handleChange}
                 placeholder="¿Cómo se conocieron? ¿Cómo se comprometieron? ¿Qué les gusta? ¡Me encanta escuchar sus historias!"
                 rows={5}
+                required
               />
             </div>
           </motion.div>
@@ -489,6 +475,7 @@ type FormFieldProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
   required?: boolean
+  prefix?: string
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -499,8 +486,23 @@ const FormField: React.FC<FormFieldProps> = ({
   onChange,
   placeholder,
   required = false,
+  prefix,
 }) => {
   const [isFocused, setIsFocused] = useState(false)
+  const dateInputRef = useRef<HTMLInputElement>(null)
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Evitar que se pueda escribir manualmente en el campo de fecha
+    if (type === "date" && e.key !== "Tab") {
+      e.preventDefault()
+    }
+  }
+
+  const handleDateClick = () => {
+    if (type === 'date' && dateInputRef.current) {
+      dateInputRef.current.showPicker?.()
+    }
+  }
 
   return (
     <motion.div
@@ -513,21 +515,58 @@ const FormField: React.FC<FormFieldProps> = ({
         {label}
         {required && <span className="text-[#BE9B5F] ml-1">*</span>}
       </label>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        placeholder={placeholder}
-        required={required}
-        className={`w-full px-4 py-4 bg-white/80 backdrop-blur-sm border-2 rounded-xl text-[#2C2A29] placeholder:text-[#9CA3AF] transition-all duration-300 focus:outline-none ${
-          isFocused
-            ? "border-[#BE9B5F] shadow-lg shadow-[#BE9B5F]/10"
-            : "border-[#E0D9CF] hover:border-[#BE9B5F]/50"
-        }`}
-      />
+      <div className="relative">
+        {prefix && (
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#2C2A29] font-medium z-10">
+            {prefix}
+          </span>
+        )}
+        <input
+          ref={type === 'date' ? dateInputRef : undefined}
+          type={type}
+          name={name}
+          inputMode={type === 'date' ? 'none' : undefined}
+          value={value}
+          onChange={onChange}
+          onFocus={() => {
+            setIsFocused(true)
+            if (type === 'date' && dateInputRef.current) {
+              dateInputRef.current.showPicker?.()
+            }
+          }}
+          onBlur={() => setIsFocused(false)}
+          onKeyDown={handleKeyDown}
+          onClick={type === 'date' ? handleDateClick : undefined}
+          placeholder={placeholder}
+          required={required}
+          className={`w-full ${prefix ? 'pl-8' : 'pl-4'} ${type === 'date' ? 'pr-12' : 'pr-4'} py-4 bg-white/80 ${type === 'date' ? 'bg-white' : 'backdrop-blur-sm'} border-2 rounded-xl text-[#2C2A29] placeholder:text-[#9CA3AF] transition-all duration-300 focus:outline-none ${
+            type === 'date' ? 'cursor-pointer select-none' : ''
+          } ${
+            isFocused
+              ? "border-[#BE9B5F] shadow-lg shadow-[#BE9B5F]/10"
+              : "border-[#E0D9CF] hover:border-[#BE9B5F]/50"
+          }`}
+        />
+        {type === 'date' && (
+          <div 
+            className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none z-10"
+          >
+            <svg 
+              className="w-5 h-5 text-[#6B7280]" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
+              />
+            </svg>
+          </div>
+        )}
+      </div>
     </motion.div>
   )
 }
