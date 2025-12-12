@@ -6,19 +6,19 @@ export function HomeCta() {
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative z-10 max-w-2xl w-full text-center">
         <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">
-          ¿Listo para crear tu historia?
+          Ready to create your story?
         </h2>
         <p className="text-lg md:text-xl text-white mb-12 font-normal">
-          Permíteme capturar los momentos más hermosos de tu vida.
+          Let me capture the most beautiful moments of your life.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="/contact">
             <Button variant="primary">
-              Agenda tu sesión
+              Schedule your session
             </Button>
           </a>
           <a href="/about">
-            <Button variant="secondary">Conocer más</Button>
+            <Button variant="secondary">Know Me</Button>
           </a>
         </div>
       </div>

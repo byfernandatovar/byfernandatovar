@@ -45,16 +45,16 @@ const AboutUsSection: React.FC = () => {
   }
 
   const paragraphs = [
-    "La cámara ha sido mi forma de entender el mundo: observar con calma, sentir antes de disparar, encontrar belleza incluso en los silencios.",
-    "Mi estilo vive entre lo elegante y lo documental. No busco poses rígidas ni escenas que se sientan ajenas. Prefiero lo que nace solo: miradas sinceras, gestos que cuentan más que las palabras, momentos que no se repiten.",
-    "Trabajo desde la presencia. Desde estar ahí, realmente ahí.",
-    "A veces guío, pero la mayoría del tiempo escucho lo que la situación pide: luz suave, un movimiento mínimo, un segundo de intimidad que se vuelve eterno.",
+    "The camera has been my way of understanding the world: observing calmly, feeling before I shoot, finding beauty even in the silences.",
+    "My style lives between the elegant and the documentary. I don't seek rigid poses or scenes that feel foreign. I prefer what happens naturally: sincere glances, gestures that say more than words, moments that never repeat.",
+    "I work from presence. From being there, really there.",
+    "Sometimes I guide, but most of the time I listen to what the moment asks for: soft light, a minimal movement, a second of intimacy that becomes eternal.",
   ]
 
   const closingParagraphs = [
-    "No persigo la perfección técnica como meta.",
-    "Persigo algo más valioso: fotografías que tengan alma.",
-    "Imágenes que puedas ver años después y sigan respirando.",
+    "I don't pursue technical perfection as a goal.",
+    "I pursue something far more valuable: photographs that have soul.",
+    "Images that you can see years later and still feel alive.",
   ]
 
   return (
@@ -78,10 +78,10 @@ const AboutUsSection: React.FC = () => {
               {/* Name intro */}
               <motion.div variants={fadeUp} className="mb-12">
                 <h2 className="mt-12 text-5xl md:text-6xl lg:text-7xl font-light text-[#000000] leading-[1.1]">
-                  Soy <span className="italic font-normal text-[#BE9B5F]">Fer</span>,
+                  I'm <span className="italic font-normal text-[#BE9B5F]">Fer</span>,
                 </h2>
                 <p className="mt-2 text-2xl md:text-3xl text-[#000000] font-light">
-                  fotógrafa desde hace 13 años.
+                  photographer for 13 years.
                 </p>
               </motion.div>
 
@@ -126,7 +126,7 @@ const AboutUsSection: React.FC = () => {
                 >
                   <img
                     src="/about-img.webp"
-                    alt="Fernanda Tovar - Fotógrafa"
+                    alt="Fernanda Tovar - Photographer"
                     className="w-full h-full object-cover grayscale-[20%] contrast-[1.05]"
                   />
                   {/* Subtle overlay */}
@@ -143,7 +143,7 @@ const AboutUsSection: React.FC = () => {
                 >
                   <img
                     src="/about-img-2.webp"
-                    alt="Fernanda trabajando"
+                    alt="Fernanda working"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 border border-[#BE9B5F]/30" />
@@ -179,10 +179,10 @@ const AboutUsSection: React.FC = () => {
           >
             <div className="relative">
               <h1 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-light text-[#2C2A29] leading-[1.3] tracking-tight">
-                Trabajo desde la <span className="italic text-[#BE9B5F]">presencia</span>.
+                I work from <span className="italic text-[#BE9B5F]">presence</span>.
               </h1>
               <p className="relative z-10 mt-2 text-2xl md:text-4xl lg:text-5xl font-light text-[#5C5856] leading-[1.3]">
-                Desde estar ahí, realmente ahí.
+                From being there, really there.
               </p>
             </div>
           </motion.div>
@@ -193,9 +193,9 @@ const AboutUsSection: React.FC = () => {
             className="max-w-2xl ml-auto mr-0 md:mr-20 mb-20 md:mb-32"
           >
             <p className="text-lg md:text-xl text-[#3D3B39] text-right leading-relaxed font-light">
-              A veces guío, pero la mayoría del tiempo escucho lo que la situación pide: 
-              <span className="text-[#BE9B5F]"> luz suave</span>, un movimiento mínimo, 
-              un segundo de <span className="italic">intimidad</span> que se vuelve eterno.
+              Sometimes I guide, but most of the time I listen to what the moment asks for: 
+              <span className="text-[#BE9B5F]"> soft light</span>, a minimal movement, 
+              a second of <span className="italic">intimacy</span> that becomes eternal.
             </p>
           </motion.div>
 
@@ -209,15 +209,15 @@ const AboutUsSection: React.FC = () => {
                 variants={fadeUp}
                 className="text-xl md:text-2xl text-[#6B6866] font-light"
               >
-                No persigo la perfección técnica como meta.
+                I don't pursue technical perfection as a goal.
               </motion.p>
 
               <motion.div variants={fadeUp}>
                 <p className="text-2xl md:text-4xl text-[#2C2A29] font-light">
-                  Persigo algo más valioso:
+                  I pursue something far more valuable:
                 </p>
                 <p className="mt-2 text-3xl md:text-5xl text-[#BE9B5F] italic font-light">
-                  fotografías que tengan alma.
+                  photographs that have soul.
                 </p>
               </motion.div>
 
@@ -225,7 +225,7 @@ const AboutUsSection: React.FC = () => {
                 variants={fadeUp}
                 className="text-lg md:text-xl text-[#5C5856] italic pt-4"
               >
-                Imágenes que puedas ver años después y sigan respirando.
+                Images that you can see years later and still feel alive.
               </motion.p>
             </div>
           </motion.div>
@@ -236,14 +236,14 @@ const AboutUsSection: React.FC = () => {
             className="max-w-xl ml-auto mr-0 text-right mb-20"
           >
             <p className="text-lg md:text-xl text-[#3D3B39] leading-relaxed font-light mb-6">
-              Mi intención es simple: crear fotos que se sientan
-              <span className="text-[#BE9B5F] font-normal"> elegantes</span>,
-              <span className="text-[#BE9B5F] font-normal"> honestas</span> y
-              <span className="text-[#BE9B5F] font-normal"> profundamente</span>
-              <span className="text-[#BE9B5F] font-bold italic"> tuyas</span>.
+              My intention is simple: create photos that feel
+              <span className="text-[#BE9B5F] font-normal"> elegant</span>,
+              <span className="text-[#BE9B5F] font-normal"> honest</span> and
+              <span className="text-[#BE9B5F] font-normal"> deeply</span>
+              <span className="text-[#BE9B5F] font-bold italic"> yours</span>.
             </p>
             <p className="text-base md:text-lg text-[#7D7873] italic mb-6">
-              Si nuestra energía combina, lo demás fluye.
+              If our energy combines, everything else flows.
             </p>
 
             {/* Signature */}

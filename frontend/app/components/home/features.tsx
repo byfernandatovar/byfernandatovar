@@ -21,7 +21,7 @@ const sections: Section[] = [
       </>
     ),
     imageUrl:
-      "/home-imgs/hero/hero9.webp",
+      "/home-imgs/features/feature-1.webp",
     reverse: false,
   },
   {
@@ -33,7 +33,7 @@ const sections: Section[] = [
       </>
     ),
     imageUrl:
-      "/home-imgs/hero/hero10.webp",
+      "/home-imgs/features/feature-2.webp",
     reverse: true,
   },
   {
@@ -45,7 +45,7 @@ const sections: Section[] = [
       </>
     ),
     imageUrl:
-      "/home-imgs/hero/hero11.webp",
+      "/home-imgs/features/feature-3.webp",
     reverse: false,
   },
 ];

@@ -31,7 +31,7 @@ const AboutCta: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Capturando tu historia, tu esencia
+            Capturing your story, your essence
           </motion.p>
 
           <motion.h3
@@ -40,7 +40,7 @@ const AboutCta: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Vamos a crear <span className="italic text-[#BE9B5F]">juntos</span>
+            Let's create <span className="italic text-[#BE9B5F]">together</span>
           </motion.h3>
 
           {/* CTA Button */}
@@ -57,7 +57,7 @@ const AboutCta: React.FC = () => {
             <span className="absolute inset-0 bg-[#BE9B5F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />
             
             <span className="relative z-10 text-base md:text-lg font-light tracking-wide">
-              Hablemos
+              Let's talk
             </span>
             <FaArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.button>

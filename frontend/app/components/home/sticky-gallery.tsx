@@ -18,7 +18,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero1.webp"
+                    src="/home-imgs/sticky-gallery/sticky-1.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -27,7 +27,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero2.webp"
+                    src="/home-imgs/sticky-gallery/sticky-2.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -36,7 +36,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero3.webp"
+                    src="/home-imgs/sticky-gallery/sticky-3.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -45,7 +45,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero4.webp"
+                    src="/home-imgs/sticky-gallery/sticky-4.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -54,7 +54,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero5.webp"
+                    src="/home-imgs/sticky-gallery/sticky-5.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -66,7 +66,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full h-full cursor-pointer">
                 <figure className="w-full h-full">
                   <img
-                    src="/home-imgs/hero/hero6.webp"
+                    src="/home-imgs/sticky-gallery/sticky-6.webp"
                     alt=""
                     className="transition-all duration-300 h-full w-full align-bottom object-cover hover:opacity-90"
                   />
@@ -75,7 +75,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full h-full cursor-pointer">
                 <figure className="w-full h-full">
                   <img
-                    src="/home-imgs/hero/hero7.webp"
+                    src="/home-imgs/sticky-gallery/sticky-7.webp"
                     alt=""
                     className="transition-all duration-300 h-full w-full align-bottom object-cover hover:opacity-90"
                   />
@@ -84,7 +84,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full h-full cursor-pointer">
                 <figure className="w-full h-full">
                   <img
-                    src="/home-imgs/hero/hero8.webp"
+                    src="/home-imgs/sticky-gallery/sticky-8.webp"
                     alt=""
                     className="transition-all duration-300 h-full w-full align-bottom object-cover hover:opacity-90"
                   />
@@ -96,7 +96,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero9.webp"
+                    src="/home-imgs/sticky-gallery/sticky-9.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -105,7 +105,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero10.webp"
+                    src="/home-imgs/sticky-gallery/sticky-10.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -114,7 +114,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero11.webp"
+                    src="/home-imgs/sticky-gallery/sticky-11.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -123,7 +123,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero12.webp"
+                    src="/home-imgs/sticky-gallery/sticky-12.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />
@@ -132,7 +132,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
               <a href="/portfolio" className="w-full cursor-pointer">
                 <figure className="w-full">
                   <img
-                    src="/home-imgs/hero/hero13.webp"
+                    src="/home-imgs/sticky-gallery/sticky-13.webp"
                     alt=""
                     className="transition-all duration-300 w-full h-96 align-bottom object-cover hover:opacity-90"
                   />

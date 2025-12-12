@@ -29,15 +29,15 @@ const socialLinks: FooterLink[] = [
 
 const footerLinkGroups: FooterLinkGroup[] = [
   {
-    label: "Navegación",
+    label: "Navigation",
     links: [
-      { title: "Inicio", href: "/" },
-      { title: "Sobre mí", href: "/about" },
-      { title: "Contacto", href: "/contact" },
+      { title: "Home", href: "/" },
+      { title: "About", href: "/about" },
+      { title: "Contact", href: "/contact" },
     ],
   },
   {
-    label: "Portafolio",
+    label: "Portfolio",
     links: [
       { title: "Weddings", href: "/portfolio/weddings" },
       { title: "Portraits", href: "/portfolio/portraits" },
@@ -62,10 +62,10 @@ export default function Footer() {
               className="w-auto h-20 object-contain"
             />
             <p className="text-[#7D7873] mt-4 text-sm leading-relaxed">
-              Creo en capturar los momentos auténticos y sin guion que hacen
-              única tu historia. Mi enfoque combina el arte editorial con la
-              narración documental para crear imágenes atemporales que
-              atesorarás por generaciones.
+              I believe in capturing the authentic, unscripted moments that make
+              your story unique. My approach combines editorial art with
+              documentary storytelling to create timeless images that you will
+              treasure for generations.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export default function Footer() {
           {/* Columna redes sociales */}
           <div className="flex flex-col items-start space-y-4 relative z-[1]">
             <h3 className="text-sm text-[#7D7873] uppercase tracking-wide">
-              Sígueme
+              Follow me
             </h3>
             <div className="flex gap-3">
               {socialLinks.map((link) => {

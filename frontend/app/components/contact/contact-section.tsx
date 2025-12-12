@@ -80,11 +80,11 @@ const ContactSection: React.FC = () => {
       if (response.ok) {
         setIsSubmitted(true)
       } else {
-        setErrorMessage(result.error || 'Error al enviar el formulario. Por favor intenta nuevamente.')
+        setErrorMessage(result.error || 'Error sending the form. Please try again.')
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      setErrorMessage('Error de conexión. Por favor verifica tu internet e intenta nuevamente.')
+      setErrorMessage('Connection error. Please check your internet and try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -121,11 +121,11 @@ const ContactSection: React.FC = () => {
           className="text-center max-w-2xl"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-[#2C2A29] mb-6">
-            ¡Gracias por escribirme!
+            Thank you for reaching out!
           </h2>
           <p className="text-lg text-[#6B7280] mb-8">
-            Me emociona mucho conocer su historia. Les responderé muy pronto para comenzar
-            a planear juntos este capítulo tan especial de sus vidas.
+            I'm thrilled to learn your story. I'll get back to you very soon to start
+            planning together this special chapter of your lives.
           </p>
         </motion.div>
       </section>
@@ -178,7 +178,7 @@ const ContactSection: React.FC = () => {
             </motion.div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 drop-shadow-2xl">
-              CONTÁCTAME
+              CONTACT ME
             </h1>
             
             <motion.div
@@ -198,23 +198,18 @@ const ContactSection: React.FC = () => {
               
               <div className="relative z-10 text-white leading-relaxed space-y-4 text-lg drop-shadow-lg">
                 <p>
-                  Me emociona muchísimo que se hayan interesado en mi trabajo, de verdad significa 
-                  mucho para mí la posibilidad de acompañarlos en un día tan especial. Cada boda 
-                  es única y mi intención siempre es contar su historia de la forma más auténtica 
-                  y cercana posible.
+                I’m truly excited that you’re interested in my work. Every wedding is unique, 
+                and my intention is to tell your story in an authentic and heartfelt way.
                 </p>
                 <p>
-                  Para poder conocerlos mejor y tener más claridad sobre lo que esperan de la 
-                  cobertura, les comparto este cuestionario. Sus respuestas me ayudarán a personalizar 
-                  la experiencia y asegurar que cada detalle importante quede guardado en recuerdos 
-                  que duren para siempre.
+                To get to know you better and understand what you’re looking for, I’m sharing this questionnaire.
+                Your answers will help me personalize the experience and make sure the important moments are captured with intention..
                 </p>
                 <p>
-                  Espero con muchísimas ganas que podamos trabajar juntos y ser parte de este 
-                  capítulo tan importante en sus vidas.
+                Looking forward to connecting with you.
                 </p>
                 <p className="text-white font-medium italic text-xl pt-4">
-                  Con cariño,<br />
+                  Warmly,<br />
                   Fernanda
                 </p>
               </div>
@@ -262,25 +257,25 @@ const ContactSection: React.FC = () => {
           {/* Section: About You */}
           <motion.div variants={itemVariants}>
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#2C2A29]">Sobre Ustedes</h2>
-              <p className="text-sm text-[#6B7280]">Cuéntenme quiénes son</p>
+              <h2 className="text-2xl font-bold text-[#2C2A29]">About You</h2>
+              <p className="text-sm text-[#6B7280]">Tell me about yourselves</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FormField
-                label="Nombre completo de la novia"
+                label="Bride's Full Name"
                 name="brideFullName"
                 value={formData.brideFullName}
                 onChange={handleChange}
-                placeholder="Ingresa el nombre de la novia"
+                placeholder="Enter the bride's name"
                 required
               />
               <FormField
-                label="Nombre completo del novio"
+                label="Groom's Full Name"
                 name="groomFullName"
                 value={formData.groomFullName}
                 onChange={handleChange}
-                placeholder="Ingresa el nombre del novio"
+                placeholder="Enter the groom's name"
                 required
               />
               <FormField
@@ -289,7 +284,7 @@ const ContactSection: React.FC = () => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="correo@ejemplo.com"
+                placeholder="email@example.com"
                 required
               />
               <FormField
@@ -297,7 +292,7 @@ const ContactSection: React.FC = () => {
                 name="instagram"
                 value={formData.instagram}
                 onChange={handleChange}
-                placeholder="@usuario"
+                placeholder="@username"
                 required
               />
             </div>
@@ -315,13 +310,13 @@ const ContactSection: React.FC = () => {
           {/* Section: Wedding Details */}
           <motion.div variants={itemVariants}>
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#2C2A29]">Detalles de la Boda</h2>
-              <p className="text-sm text-[#6B7280]">La información de su gran día</p>
+              <h2 className="text-2xl font-bold text-[#2C2A29]">Wedding Details</h2>
+              <p className="text-sm text-[#6B7280]">Information about your big day</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <FormField
-                label="Fecha de boda"
+                label="Wedding Date"
                 name="weddingDate"
                 type="date"
                 value={formData.weddingDate}
@@ -329,43 +324,43 @@ const ContactSection: React.FC = () => {
                 required
               />
               <FormField
-                label="Ciudad de boda"
+                label="Wedding City"
                 name="weddingCity"
                 value={formData.weddingCity}
                 onChange={handleChange}
-                placeholder="Ej: León, Guanajuato"
+                placeholder="E.g: León, Guanajuato"
                 required
               />
               <FormField
-                label="Venue de boda"
+                label="Wedding Venue"
                 name="weddingVenue"
                 value={formData.weddingVenue}
                 onChange={handleChange}
-                placeholder="Nombre del venue"
+                placeholder="Venue name"
                 required
               />
               <FormField
-                label="Número de invitados"
+                label="Number of Guests"
                 name="guestCount"
                 value={formData.guestCount}
                 onChange={handleChange}
-                placeholder="Ej: 150"
+                placeholder="E.g: 150"
                 required
               />
               <FormField
-                label="Wedding planner"
+                label="Wedding Planner"
                 name="weddingPlanner"
                 value={formData.weddingPlanner}
                 onChange={handleChange}
-                placeholder="Nombre del wedding planner (si aplica)"
+                placeholder="Wedding planner name (if applicable)"
                 required
               />
               <FormField
-                label="Presupuesto estimado (MXN)"
+                label="Estimated Budget (MXN)"
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                placeholder="Para la cobertura fotográfica"
+                placeholder="For the photography coverage"
                 prefix="$"
                 required
               />
@@ -384,26 +379,26 @@ const ContactSection: React.FC = () => {
           {/* Section: Your Story */}
           <motion.div variants={itemVariants}>
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#2C2A29]">Su Historia</h2>
-              <p className="text-sm text-[#6B7280]">Me encanta escuchar sus historias</p>
+              <h2 className="text-2xl font-bold text-[#2C2A29]">Your Story</h2>
+              <p className="text-sm text-[#6B7280]">I love hearing your stories</p>
             </div>
             
             <div className="space-y-6">
               <TextAreaField
-                label="Platícame más sobre tu boda"
+                label="Tell me more about your wedding"
                 name="weddingDetails"
                 value={formData.weddingDetails}
                 onChange={handleChange}
-                placeholder="¿Durará todo el fin de semana o te centrarás en un solo día? ¿Qué momentos y eventos son los más importantes para ti y que quieres documentar?"
+                placeholder="Will it last the whole weekend or will you focus on just one day? What moments and events are most important to you and which ones do you want documented?"
                 rows={5}
                 required
               />
               <TextAreaField
-                label="Cuéntame más sobre su historia"
+                label="Tell me more about your story"
                 name="loveStory"
                 value={formData.loveStory}
                 onChange={handleChange}
-                placeholder="¿Cómo se conocieron? ¿Cómo se comprometieron? ¿Qué les gusta? ¡Me encanta escuchar sus historias!"
+                placeholder="How did you meet? How did you get engaged? What do you like? I love hearing your stories!"
                 rows={5}
                 required
               />
@@ -443,11 +438,11 @@ const ContactSection: React.FC = () => {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     />
-                    Enviando...
+                    Sending...
                   </>
                 ) : (
                   <>
-                    Enviar mensaje
+                    Send message
                   </>
                 )}
               </span>
@@ -459,7 +454,7 @@ const ContactSection: React.FC = () => {
             className="text-center text-sm text-[#6B7280] pt-4"
             variants={itemVariants}
           >
-            Te responderé en un plazo de 24-48 horas
+            I'll get back to you within 24-48 hours
           </motion.p>
         </motion.form>
       </div>

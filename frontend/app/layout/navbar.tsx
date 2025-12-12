@@ -133,7 +133,7 @@ const CTAs = () => {
   return (
     <div className="flex items-center">
       <a href="/contact">
-        <Button variant="primary">Contacto</Button>
+        <Button variant="primary">Contact</Button>
       </a>
     </div>
   );
@@ -234,7 +234,7 @@ const MobileMenu = () => {
                   key={l.text}
                   href={l.href}
                   setMenuOpen={setOpen}
-                  hasSubmenu={l.text === "Portafolio"}
+                  hasSubmenu={l.text === "Portfolio"}
                 >
                   {l.text}
                 </MobileMenuLink>
@@ -284,15 +284,15 @@ const PortfolioFlyout = () => {
 
 const LINKS = [
   {
-    text: "Inicio",
+    text: "Home",
     href: "/",
   },
   {
-    text: "Sobre mí",
+    text: "About",
     href: "/about",
   },
   {
-    text: "Portafolio",
+    text: "Portfolio",
     href: "/portfolio",
     component: PortfolioFlyout,
   }
