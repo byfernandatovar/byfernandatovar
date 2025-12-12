@@ -22,6 +22,7 @@ export interface PortfolioCategory {
   name: string;
   title: string;
   subtitle: string;
+  coverImage?: SanityImage;
   images: SanityImage[];
 }
 
@@ -49,6 +50,31 @@ export async function getPortfolioCategory(slug: string): Promise<PortfolioCateg
   }`;
 
   return client.fetch(query, { slug });
+}
+
+// Query to get all portfolio categories for the main grid
+export async function getAllPortfolioCategories(): Promise<PortfolioCategory[]> {
+  const query = `*[_type == "portfolioCategory"] | order(
+    select(
+      name == "weddings" => 0,
+      name == "portraits" => 1,
+      name == "moments" => 2,
+      name == "couples" => 3,
+      4
+    )
+  ){
+    _id,
+    name,
+    title,
+    subtitle,
+    coverImage {
+      _key,
+      asset,
+      alt
+    }
+  }`;
+
+  return client.fetch(query);
 }
 
 // Helper to transform Sanity images to URL strings

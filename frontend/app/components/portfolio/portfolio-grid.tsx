@@ -1,38 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const categories = [
-  {
-    id: "weddings",
-    title: "Weddings",
-    subtitle: "Eternal Moments",
-    href: "/portfolio/weddings",
-    image: "/portfolio-imgs/weddings/2.webp",
-  },
-  {
-    id: "portraits",
-    title: "Portraits",
-    subtitle: "Soul Stories",
-    href: "/portfolio/portraits",
-    image: "/portfolio-imgs/portraits/7.webp",
-  },
-  {
-    id: "moments",
-    title: "Moments",
-    subtitle: "Life Captured",
-    href: "/portfolio/moments",
-    image: "/portfolio-imgs/moments/1.webp",
-  },
-  {
-    id: "couples",
-    title: "Couples",
-    subtitle: "Love & Connection",
-    href: "/portfolio/couples",
-    image: "/portfolio-imgs/couples/8.webp",
-  },
-];
+interface Category {
+  id: string;
+  title: string;
+  subtitle: string;
+  href: string;
+  image: string;
+}
 
-export const PortfolioGrid = () => {
+interface PortfolioGridProps {
+  categories: Category[];
+}
+
+export const PortfolioGrid = ({ categories }: PortfolioGridProps) => {
   return (
     <div className="min-h-screen py-32 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">

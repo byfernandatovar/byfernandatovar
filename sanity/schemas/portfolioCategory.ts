@@ -34,10 +34,28 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'coverImage',
+      title: 'Imagen de Portada',
+      type: 'image',
+      description: 'Imagen que se muestra en la página principal del portfolio',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Texto alternativo',
+          type: 'string',
+          description: 'Descripción de la imagen para accesibilidad',
+        },
+      ],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'images',
-      title: 'Imágenes',
+      title: 'Imágenes de la Galería',
       type: 'array',
-      description: 'Arrastra para reordenar las imágenes',
+      description: 'Arrastra para reordenar las imágenes de la galería',
       of: [
         {
           type: 'image',
