@@ -14,7 +14,7 @@ export function HomeCta() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="/contact">
             <Button variant="primary">
-              Schedule your session
+              Let's talk
             </Button>
           </a>
           <a href="/about">

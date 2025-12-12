@@ -24,13 +24,13 @@ const DEFAULT_IMAGES: IPicture[] = [
 ];
 
 const IMAGE_STYLES = [
-  "w-[25vw] h-[25vh]",
-  "w-[35vw] h-[30vh] -top-[30vh] left-[5vw]",
-  "w-[20vw] h-[55vh] -top-[15vh] -left-[25vw]",
-  "w-[25vw] h-[25vh] left-[27.5vw]",
-  "w-[20vw] h-[30vh] top-[30vh] left-[5vw]",
-  "w-[30vw] h-[25vh] top-[27.5vh] -left-[22.5vw]",
-  "w-[15vw] h-[15vh] top-[22.5vh] left-[25vw]",
+  "w-[25vw] h-[14.0625vw] md:h-[25vh]",
+  "w-[35vw] h-[16.875vw] md:h-[30vh] -top-[10vh] left-[5vw]",
+  "w-[20vw] h-[30.9375vw] md:h-[55vh] -top-[2vh] -left-[25vw]",
+  "w-[25vw] h-[14.0625vw] md:h-[25vh] -top-[2vh] left-[27.5vw]",
+  "w-[20vw] h-[16.875vw] md:h-[30vh] top-[10vh] left-[5vw]",
+  "w-[30vw] h-[14.0625vw] md:h-[25vh] top-[10vh] -left-[22.5vw]",
+  "w-[20vw] h-[15vw] md:h-[15vh] top-[6vh] left-[28vw]",
 ];
 
 const ImmersiveScrollGallery: React.FC<ImmersiveScrollGalleryProps> = ({

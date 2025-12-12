@@ -8,12 +8,12 @@ export function HomeCta2() {
         <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-normal font-heading uppercase leading-tight mb-6">
         Celebrating <br/> the beauty of <br/>nostalgia
         </h1>
-        <p className="text-white text-lg md:text-xl lg:text-2xl font-normal max-w-2xl">
+        <p className="text-white text-lg md:text-xl lg:text-2xl font-normal max-w-2xl mb-12">
           — preserving moments with a <span className="italic">timeless editorial gaze</span>
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="/contact">
-            <Button variant="primary" className="my-10">Book a session</Button>
+            <Button variant="primary">Inquire Now</Button>
           </a>
           <a href="/portfolio">
             <Button variant="secondary">Portfolio</Button>

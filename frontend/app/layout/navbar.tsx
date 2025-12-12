@@ -239,9 +239,11 @@ const MobileMenu = () => {
                   {l.text}
                 </MobileMenuLink>
               ))}
-            </div>
-            <div className="flex justify-end bg-[#F0EBE1] p-6">
-              <CTAs />
+              <div className="mt-6 pt-6 border-t border-neutral-300">
+                <a href="/contact" onClick={() => setOpen(false)}>
+                  <Button variant="primary" className="w-full">Contact</Button>
+                </a>
+              </div>
             </div>
           </motion.nav>
         )}
