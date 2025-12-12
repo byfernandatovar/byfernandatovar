@@ -171,7 +171,7 @@ export const CategoryGallery: React.FC<CategoryGalleryProps> = ({
           className="inline-flex items-center text-[#7D7873] hover:text-black transition-colors mb-12 group"
         >
           <span className="mr-2 group-hover:-translate-x-1 transition-transform duration-300">←</span>
-          Volver al Portfolio
+          Back to Portfolio
         </motion.a>
 
         {/* Masonry Gallery Layout - Desktop (3 balanced columns) */}

@@ -26,7 +26,7 @@ export const PortfolioGrid = ({ categories }: PortfolioGridProps) => {
         >
           <h1 className="text-5xl md:text-7xl text-black mb-6">Portfolio</h1>
           <p className="text-lg md:text-xl text-[#7D7873] max-w-2xl mx-auto">
-            Descubre mis colecciones fotográficas donde cada imagen cuenta una historia única
+            Discover my photography collections where every image tells a unique story
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export const PortfolioGrid = ({ categories }: PortfolioGridProps) => {
                     {category.title}
                   </h2>
                   <div className="flex items-center text-white/80 text-sm group-hover:text-white transition-colors duration-300">
-                    <span className="mr-2">Explorar</span>
+                    <span className="mr-2">Explore</span>
                     <motion.span
                       className="text-xl"
                       animate={{ x: [0, 5, 0] }}

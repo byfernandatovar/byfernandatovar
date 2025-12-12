@@ -13,10 +13,10 @@ export function HomeCta2() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="/contact">
-            <Button variant="primary" className="my-10">Agendar sesión</Button>
+            <Button variant="primary" className="my-10">Book a session</Button>
           </a>
           <a href="/portfolio">
-            <Button variant="secondary">Portafolio</Button>
+            <Button variant="secondary">Portfolio</Button>
           </a>
         </div>
       </div>
