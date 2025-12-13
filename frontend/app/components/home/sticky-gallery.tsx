@@ -11,7 +11,7 @@ const StickyGallery = forwardRef<HTMLElement, StickyGalleryProps>(
         className={`bg-[#F0EBE1] ${className}`}
         {...rest}
       >
-        <h2 className="text-center text-4xl font-semibold text-gray-800 mb-8">A closer look at my work</h2>
+        <h2 className="text-center text-2xl md:text-4xl font-semibold text-gray-800">A closer look at my work</h2>
         <section className="text-white md:w-[80%] w-full mx-auto py-24 bg-[#F0EBE1]">
           <div className="grid grid-cols-12 gap-2">
             <div className="grid gap-2 col-span-4">

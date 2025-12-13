@@ -165,12 +165,24 @@ const MobileMenuLink = ({
   if (hasSubmenu) {
     return (
       <div className="relative text-neutral-950">
-        <div
-          onClick={() => setSubmenuOpen(!submenuOpen)}
-          className="flex w-full cursor-pointer items-center justify-between border-b border-neutral-300 py-6 text-start text-2xl text-[#7D7873] uppercase tracking-wide hover:bg-neutral-50 transition-colors"
-        >
-          <span>{children}</span>
-          <span className="text-lg">{submenuOpen ? "−" : "+"}</span>
+        <div className="flex w-full items-center border-b border-neutral-300">
+          <a
+            href={href}
+            onClick={() => setMenuOpen(false)}
+            className="flex-1 py-6 text-start text-2xl text-[#7D7873] uppercase tracking-wide hover:bg-neutral-50 transition-colors"
+          >
+            <span>{children}</span>
+          </a>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setSubmenuOpen(!submenuOpen);
+            }}
+            className="px-4 py-6 text-lg text-[#7D7873] hover:bg-neutral-50 transition-colors"
+            aria-label={submenuOpen ? "Cerrar submenú" : "Abrir submenú"}
+          >
+            {submenuOpen ? "−" : "+"}
+          </button>
         </div>
         {submenuOpen && (
           <div className="bg-[#F0EBE1] pl-6">
@@ -241,7 +253,7 @@ const MobileMenu = () => {
               ))}
               <div className="mt-6 pt-6 border-t border-neutral-300">
                 <a href="/contact" onClick={() => setOpen(false)}>
-                  <Button variant="primary" className="w-full">Contact</Button>
+                  <Button variant="primary" className="w-full">Inquire</Button>
                 </a>
               </div>
             </div>

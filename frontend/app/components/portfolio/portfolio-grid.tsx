@@ -24,7 +24,7 @@ export const PortfolioGrid = ({ categories }: PortfolioGridProps) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h1 className="text-5xl md:text-7xl text-black mb-6">Portfolio</h1>
+          <h1 className="text-4xl md:text-6xl text-black mb-6">Portfolio</h1>
           <p className="text-lg md:text-xl text-[#7D7873] max-w-2xl mx-auto">
             Discover my photography collections where every image tells a unique story
           </p>
@@ -62,7 +62,7 @@ export const PortfolioGrid = ({ categories }: PortfolioGridProps) => {
                   <p className="text-[#BE9B5F] text-sm md:text-base uppercase tracking-widest mb-2">
                     {category.subtitle}
                   </p>
-                  <h2 className="text-white text-4xl md:text-5xl font-light mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                  <h2 className="text-white text-3xl md:text-4xl font-light mb-4 group-hover:translate-x-2 transition-transform duration-300">
                     {category.title}
                   </h2>
                   <div className="flex items-center text-white/80 text-sm group-hover:text-white transition-colors duration-300">

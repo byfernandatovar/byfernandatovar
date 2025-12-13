@@ -177,12 +177,12 @@ const ContactSection: React.FC = () => {
               
             </motion.div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 drop-shadow-2xl">
-              CONTACT ME
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 drop-shadow-2xl">
+              INQUIRE
             </h1>
             
             <motion.div
-              className="h-1 w-24 bg-[#BE9B5F] mx-auto rounded-full mb-10"
+              className="h-0.5 w-24 bg-[#BE9B5F] mx-auto rounded-full mb-10"
               initial={{ width: 0 }}
               animate={{ width: 96 }}
               transition={{ duration: 1, delay: 0.5 }}
