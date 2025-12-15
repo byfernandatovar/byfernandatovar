@@ -13,10 +13,10 @@ export function meta({}: Route.MetaArgs) {
     { property: "og:title", content: "Momentos | Portafolio - Fernanda Tovar" },
     { property: "og:description", content: "Instantes fugaces llenos de emoción. Capturando la espontaneidad y belleza de lo cotidiano." },
     { property: "og:image", content: "/portfolio-imgs/moments/1.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/portfolio-imgs/moments/1.webp" },
-    { property: "twitter:title", content: "Momentos | Portafolio - Fernanda Tovar" },
-    { property: "twitter:description", content: "Instantes fugaces llenos de emoción. Capturando la espontaneidad y belleza de lo cotidiano." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/portfolio-imgs/moments/1.webp" },
+    { name: "twitter:title", content: "Momentos | Portafolio - Fernanda Tovar" },
+    { name: "twitter:description", content: "Instantes fugaces llenos de emoción. Capturando la espontaneidad y belleza de lo cotidiano." },
   ];
 }
 

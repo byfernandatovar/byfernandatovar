@@ -10,21 +10,21 @@ import { HomeCta2 } from "~/components/home/home-cta-2";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Fernanda Tovar - Fotografía de Bodas y Retratos" },
-    { 
-      name: "description", 
-      content: "Fotografía de bodas, parejas y retratos en León, Guanajuato. Capturando momentos auténticos y atemporales con un estilo documental y artístico." 
+    {
+      name: "description",
+      content: "Fotografía de bodas, parejas y retratos. Capturando momentos auténticos y atemporales con un estilo documental y artístico."
     },
     {
       name: "keywords",
-      content: "fotógrafa de bodas, león guanajuato, fotografía de parejas, retratos, fotografía documental, boda, fernanda tovar"
+      content: "fotógrafa de bodas, fotografía de parejas, retratos, fotografía documental, boda, fernanda tovar"
     },
     { property: "og:title", content: "Fernanda Tovar - Fotografía de Bodas y Retratos" },
     { property: "og:description", content: "Capturando momentos auténticos y atemporales con un estilo documental y artístico." },
     { property: "og:image", content: "/home-imgs/hero/hero-1.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/home-imgs/hero/hero-1.webp" },
-    { property: "twitter:title", content: "Fernanda Tovar - Fotografía de Bodas y Retratos" },
-    { property: "twitter:description", content: "Capturando momentos auténticos y atemporales con un estilo documental y artístico." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/home-imgs/hero/hero-1.webp" },
+    { name: "twitter:title", content: "Fernanda Tovar - Fotografía de Bodas y Retratos" },
+    { name: "twitter:description", content: "Capturando momentos auténticos y atemporales con un estilo documental y artístico." },
   ];
 }
 

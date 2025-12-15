@@ -6,19 +6,19 @@ export function meta({}: Route.MetaArgs) {
     { title: "Contacto | Fernanda Tovar" },
     {
       name: "description",
-      content: "¿Planeando tu boda o una sesión especial? Escríbeme y creemos algo hermoso juntos. Disponible en León, Guanajuato y para viajar.",
+      content: "¿Planeando tu boda o una sesión especial? Escríbeme y creemos algo hermoso juntos.",
     },
     {
       name: "keywords",
-      content: "contacto fotógrafa bodas, reservar sesión fotos, cotización boda león guanajuato, fernanda tovar contacto"
+      content: "contacto fotógrafa bodas, reservar sesión fotos, cotización boda, fernanda tovar contacto"
     },
     { property: "og:title", content: "Contacto | Fernanda Tovar" },
     { property: "og:description", content: "¿Planeando tu boda o una sesión especial? Escríbeme y creemos algo hermoso juntos." },
     { property: "og:image", content: "/contact-bg.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/contact-bg.webp" },
-    { property: "twitter:title", content: "Contacto | Fernanda Tovar" },
-    { property: "twitter:description", content: "¿Planeando tu boda o una sesión especial? Escríbeme y creemos algo hermoso juntos." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/contact-bg.webp" },
+    { name: "twitter:title", content: "Contacto | Fernanda Tovar" },
+    { name: "twitter:description", content: "¿Planeando tu boda o una sesión especial? Escríbeme y creemos algo hermoso juntos." },
   ];
 }
 

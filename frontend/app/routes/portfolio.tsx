@@ -13,10 +13,10 @@ export function meta({}: Route.MetaArgs) {
     { property: "og:title", content: "Portafolio | Fernanda Tovar" },
     { property: "og:description", content: "Explora galerías seleccionadas de bodas, sesiones de pareja y retratos. Cada imagen cuenta una historia única." },
     { property: "og:image", content: "/portfolio-imgs/weddings/1.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/portfolio-imgs/weddings/1.webp" },
-    { property: "twitter:title", content: "Portafolio | Fernanda Tovar" },
-    { property: "twitter:description", content: "Explora galerías seleccionadas de bodas, sesiones de pareja y retratos. Cada imagen cuenta una historia única." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/portfolio-imgs/weddings/1.webp" },
+    { name: "twitter:title", content: "Portafolio | Fernanda Tovar" },
+    { name: "twitter:description", content: "Explora galerías seleccionadas de bodas, sesiones de pareja y retratos. Cada imagen cuenta una historia única." },
   ];
 }
 

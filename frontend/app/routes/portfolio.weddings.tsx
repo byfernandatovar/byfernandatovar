@@ -8,15 +8,15 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Tu día especial documentado con arte y sentimiento. Fotografía de bodas emotiva y atemporal." },
     {
       name: "keywords",
-      content: "fotografía bodas, fotógrafo bodas león, boda destino, reportaje boda, fotos novia"
+      content: "fotografía bodas, fotógrafo bodas, boda destino, reportaje boda, fotos novia"
     },
     { property: "og:title", content: "Bodas | Portafolio - Fernanda Tovar" },
     { property: "og:description", content: "Tu día especial documentado con arte y sentimiento. Fotografía de bodas emotiva y atemporal." },
     { property: "og:image", content: "/portfolio-imgs/weddings/1.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/portfolio-imgs/weddings/1.webp" },
-    { property: "twitter:title", content: "Bodas | Portafolio - Fernanda Tovar" },
-    { property: "twitter:description", content: "Tu día especial documentado con arte y sentimiento. Fotografía de bodas emotiva y atemporal." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/portfolio-imgs/weddings/1.webp" },
+    { name: "twitter:title", content: "Bodas | Portafolio - Fernanda Tovar" },
+    { name: "twitter:description", content: "Tu día especial documentado con arte y sentimiento. Fotografía de bodas emotiva y atemporal." },
   ];
 }
 

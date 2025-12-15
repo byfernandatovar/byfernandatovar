@@ -8,15 +8,15 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
     {
       name: "keywords",
-      content: "fotografía retratos, sesión personal, retrato artístico, book fotos, león guanajuato"
+      content: "fotografía retratos, sesión personal, retrato artístico, book fotos"
     },
     { property: "og:title", content: "Retratos | Portafolio - Fernanda Tovar" },
     { property: "og:description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
     { property: "og:image", content: "/portfolio-imgs/portraits/1.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/portfolio-imgs/portraits/1.webp" },
-    { property: "twitter:title", content: "Retratos | Portafolio - Fernanda Tovar" },
-    { property: "twitter:description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/portfolio-imgs/portraits/1.webp" },
+    { name: "twitter:title", content: "Retratos | Portafolio - Fernanda Tovar" },
+    { name: "twitter:description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
   ];
 }
 

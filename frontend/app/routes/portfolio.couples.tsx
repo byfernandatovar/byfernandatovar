@@ -8,15 +8,15 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
     {
       name: "keywords",
-      content: "fotografía parejas, sesión engagement, fotos novios, amor, conexión, león guanajuato"
+      content: "fotografía parejas, sesión engagement, fotos novios, amor, conexión"
     },
     { property: "og:title", content: "Parejas | Portafolio - Fernanda Tovar" },
     { property: "og:description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
     { property: "og:image", content: "/portfolio-imgs/couples/1.webp" },
-    { property: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:image", content: "/portfolio-imgs/couples/1.webp" },
-    { property: "twitter:title", content: "Parejas | Portafolio - Fernanda Tovar" },
-    { property: "twitter:description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/portfolio-imgs/couples/1.webp" },
+    { name: "twitter:title", content: "Parejas | Portafolio - Fernanda Tovar" },
+    { name: "twitter:description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
   ];
 }
 
