@@ -4,8 +4,19 @@ import { getPortfolioCategory, getImageUrls } from "../lib/sanity";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Moments - By Fernanda Tovar" },
-    { name: "description", content: "Momentos capturados" },
+    { title: "Momentos | Portafolio - Fernanda Tovar" },
+    { name: "description", content: "Instantes fugaces llenos de emoción. Capturando la espontaneidad y belleza de lo cotidiano." },
+    {
+      name: "keywords",
+      content: "fotografía lifestyle, momentos espontáneos, fotografía documental, vida real, emociones"
+    },
+    { property: "og:title", content: "Momentos | Portafolio - Fernanda Tovar" },
+    { property: "og:description", content: "Instantes fugaces llenos de emoción. Capturando la espontaneidad y belleza de lo cotidiano." },
+    { property: "og:image", content: "/portfolio-imgs/moments/1.webp" },
+    { property: "twitter:card", content: "summary_large_image" },
+    { property: "twitter:image", content: "/portfolio-imgs/moments/1.webp" },
+    { property: "twitter:title", content: "Momentos | Portafolio - Fernanda Tovar" },
+    { property: "twitter:description", content: "Instantes fugaces llenos de emoción. Capturando la espontaneidad y belleza de lo cotidiano." },
   ];
 }
 

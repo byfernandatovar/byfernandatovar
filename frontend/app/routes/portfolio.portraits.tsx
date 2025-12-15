@@ -4,8 +4,19 @@ import { getPortfolioCategory, getImageUrls } from "../lib/sanity";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Portraits - By Fernanda Tovar" },
-    { name: "description", content: "Fotografía de retratos" },
+    { title: "Retratos | Portafolio - Fernanda Tovar" },
+    { name: "description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
+    {
+      name: "keywords",
+      content: "fotografía retratos, sesión personal, retrato artístico, book fotos, león guanajuato"
+    },
+    { property: "og:title", content: "Retratos | Portafolio - Fernanda Tovar" },
+    { property: "og:description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
+    { property: "og:image", content: "/portfolio-imgs/portraits/1.webp" },
+    { property: "twitter:card", content: "summary_large_image" },
+    { property: "twitter:image", content: "/portfolio-imgs/portraits/1.webp" },
+    { property: "twitter:title", content: "Retratos | Portafolio - Fernanda Tovar" },
+    { property: "twitter:description", content: "Retratos que van más allá de una imagen. Sesiones personales que resaltan tu esencia y personalidad." },
   ];
 }
 

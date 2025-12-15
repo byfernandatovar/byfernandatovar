@@ -4,8 +4,19 @@ import { getPortfolioCategory, getImageUrls } from "../lib/sanity";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Couples - By Fernanda Tovar" },
-    { name: "description", content: "Fotografía de parejas" },
+    { title: "Parejas | Portafolio - Fernanda Tovar" },
+    { name: "description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
+    {
+      name: "keywords",
+      content: "fotografía parejas, sesión engagement, fotos novios, amor, conexión, león guanajuato"
+    },
+    { property: "og:title", content: "Parejas | Portafolio - Fernanda Tovar" },
+    { property: "og:description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
+    { property: "og:image", content: "/portfolio-imgs/couples/1.webp" },
+    { property: "twitter:card", content: "summary_large_image" },
+    { property: "twitter:image", content: "/portfolio-imgs/couples/1.webp" },
+    { property: "twitter:title", content: "Parejas | Portafolio - Fernanda Tovar" },
+    { property: "twitter:description", content: "Historias de amor capturadas con naturalidad. Sesiones de pareja que reflejan conexión y complicidad." },
   ];
 }
 
