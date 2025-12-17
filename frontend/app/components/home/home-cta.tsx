@@ -6,7 +6,7 @@ export function HomeCta() {
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative z-10 max-w-2xl w-full text-center">
         <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">
-          Ready to create your story?
+          Start your journey here.
         </h2>
         <p className="text-lg md:text-xl text-white mb-12 font-normal">
           Let me capture the most beautiful moments of your life.
