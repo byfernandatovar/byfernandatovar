@@ -79,6 +79,12 @@ const ContactSection: React.FC = () => {
       
       if (response.ok) {
         setIsSubmitted(true)
+        // Track Lead event for Meta Pixel
+        if (typeof window !== "undefined" && window.fbq) {
+          window.fbq("track", "Lead", {
+            content_name: "Formulario de Contacto",
+          })
+        }
       } else {
         setErrorMessage(result.error || 'Error sending the form. Please try again.')
       }
